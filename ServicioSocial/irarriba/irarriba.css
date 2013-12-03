@@ -1,0 +1,15 @@
+/* Botón Ir Arriba
+----------------------------------------------- */
+#IrArriba {
+    position: fixed;
+    bottom: 11.5%; /* Distancia desde abajo */
+    right: 2%; /* Distancia desde la derecha */
+}
+
+#IrArriba span {
+    width: 30px; /* Ancho del botón */
+    height: 30px; /* Alto del botón */
+    display: block;
+    background: url(imgs/flecha-arriba.png) no-repeat center center;
+}
+
