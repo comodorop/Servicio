@@ -3,6 +3,7 @@
 include '../Dao/dao.php';
 session_start();
 include './validacionseSessionAlumnos.php';
+include '../DaoConnection/coneccion.php';
 $validacion = new validacionseSessionAlumnos();
 $validacion->verificacionDeLogueAlumnos();
 $matricula = $_SESSION["UsuarioAlumno"];
@@ -19,7 +20,7 @@ $seleccionados = explode(',',  utf8_decode($_GET['Asignatura'])); // convierto e
  $validando="SELECT * FROM verificacion where matricula = '$matricula' and anio = '$anio' and ciclo = '$cursoEscolar' and tipo = 5";
  $d = mysql_query($validando, $cn->Conectarse());
  $d= mysql_affected_rows();
- if($d<=0){
+ if($d <= 0){
     for ($i=0;$i<count($seleccionados);$i++) { 
       $sql2 = "SELECT id FROM materias where materia = '$seleccionados[$i]'";  
          $datos = mysql_query($sql2, $cn->Conectarse());

@@ -18,6 +18,15 @@ class verificacion {
     private $tipo;
     private $ciclo;
     private $año;
+    private $ano;
+
+    public function getAno() {
+        return $this->ano;
+    }
+
+    public function setAno($ano) {
+        $this->ano = $ano;
+    }
 
     public function getId() {
         return $this->id;

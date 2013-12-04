@@ -7,17 +7,15 @@ class dao {
     function guardarAlumnoGrupo(alumnosinscritos $A) {
         $cn = new coneccion();
         $validar = "SELECT * FROM alumnosinscritos Where  idGrupo = " . $A->getIdGrupo() . " and idMateria = " . $A->getIdMateria() . " and usuario ='" . $A->getUsuario() . "' ";
-        $validando = mysql_query($validar, $cn->Conectarse());
+        mysql_query($validar, $cn->Conectarse());
         $validando = mysql_affected_rows();
         if ($validando <= 0) {
             $validar2 = "SELECT * FROM alumnosinscritos Where  idMateria = " . $A->getIdMateria() . " and usuario = '" . $A->getUsuario() . "' ";
-            $validando2 = mysql_query($validar2, $cn->Conectarse());
+            mysql_query($validar2, $cn->Conectarse());
             $validando2 = mysql_affected_rows();
             if ($validando2 <= 0) {
-                $sql = "INSERT INTO alumnosinscritos(idGrupo,usuario, idMateria) 
-VALUES (
-'" . $A->getIdGrupo() . "', '" . $A->getUsuario() . "','" . $A->getIdMateria() . "'
-)";
+                $sql = "INSERT INTO alumnosinscritos(idGrupo,usuario, idMateria, anio, cursoEscolar) 
+                VALUES ('" . $A->getIdGrupo() . "', '" . $A->getUsuario() . "','" . $A->getIdMateria() . "','" . $A->getAnio() . "', '" . $A->getCursoEscolar() . "')";
                 mysql_query($sql, $cn->Conectarse());
                 $cn->cerrarBd();
                 return 1;
@@ -34,7 +32,7 @@ VALUES (
         $cn = new coneccion();
         $sql = "INSERT INTO gruposalumnos( nombreGrupo,idMateria, idMaestro, curso, anio) 
 VALUES (
-'" . $C->getNombreGrupo() . "', '" . $C->getIdMateria() . "','" . $C->getIdMaestro() . "','".$C->getCurso()."', '".$C->getAnio()."')";
+'" . $C->getNombreGrupo() . "', '" . $C->getIdMateria() . "','" . $C->getIdMaestro() . "','" . $C->getCurso() . "', '" . $C->getAnio() . "')";
         mysql_query($sql, $cn->Conectarse());
         $cn->cerrarBd();
     }
@@ -475,7 +473,7 @@ VALUES (
     }
 
     function validarprecarga(fechascicloescolar $A) {
-//        include '../DaoConnection/coneccion.php';
+        include '../DaoConnection/coneccion.php';
         $cn = new coneccion();
         $sql = "SELECT fechaInicial, fechaFinal FROM guardarevento where anio = '" . $A->getAnio() . "' AND cicloEscolar = '" . $A->getCicloEscolar() . "' AND evento = 5 ";
         $consulta = mysql_query($sql, $cn->Conectarse());
@@ -483,11 +481,31 @@ VALUES (
             $fechaInicial = $rs2["fechaInicial"];
             $fechaFinal = $rs2["fechaFinal"];
         }
-        $start_ts = strtotime($fechaInicial);
-        $end_ts = strtotime($fechaFinal);
-        $evaluame = date("yy/mm/dd");
-        $user_ts = strtotime($evaluame); //fecha a evaluar
-        return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
+        $validando = mysql_affected_rows();
+        if ($validando > 0) {
+            $start_ts = strtotime($fechaInicial);
+            $end_ts = strtotime($fechaFinal);
+            $evaluame = date("Y/m/d");
+            $user_ts = strtotime($evaluame); //fecha a evaluar
+            return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
+        } else {
+            return false;
+        }
+    }
+
+    function validarEstadoPrecarga(verificacion $A) {
+//        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $validando = "SELECT * FROM verificacion where matricula = '" . $A->getMatricula() . "' and anio = '" . $A->getAno() . "' and ciclo = '" . $A->getCiclo() . "' and tipo = 5";
+        $d = mysql_query($validando, $cn->Conectarse());
+        $d = mysql_affected_rows();
+        if ($d <= 0) {
+            $cn->cerrarBd();
+            return 0;
+        } else {
+            $cn->cerrarBd();
+            return 1;
+        }
     }
 
     function dameMaestros() {

@@ -5,7 +5,7 @@ class DaoPablo {
     function insertarCalifiaciones(CalificacionesActuales $calificaciones) {
         include '../DaoConnection/coneccion.php';
         $cn = new coneccion();
-        $sql = "INSERT INTO calificacionesactual(idAlumno, idMaestro, idMateria, Calificacion, Unidad, CursoEscolar, TipoCurso, anio, idGrupo)
+        $sql = "INSERT INTO calificacionesactual(idAlumno, idMaestro, idMateria, Calificacion, Unidad, CursoEscolar, TipoCurso, anio)
                 VALUES('" . $calificaciones->getUsuario() . "',
                 '" . $calificaciones->getIdMaestro() . "',
                 '" . $calificaciones->getIdMateria() . "', 
@@ -13,8 +13,7 @@ class DaoPablo {
                 '" . $calificaciones->getUnidad() . "',
                 '" . $calificaciones->getCursoEscolar() . "',
                 '" . $calificaciones->getTipoCurso() . "',
-                '" . $calificaciones->getAño() . "',
-                '" . $calificaciones->getGrupo() . "')";
+                '" . $calificaciones->getAño() . "')";
         mysql_query($sql, $cn->Conectarse());
     }
 

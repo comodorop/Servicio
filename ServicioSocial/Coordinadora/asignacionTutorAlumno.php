@@ -41,7 +41,7 @@ include '../DaoConnection/coneccion.php';
                 $("#alumnos").change(function() {
                     var alumno = $("#alumnos").val();
                     if (alumno != '') {
-
+                        
                         $("#actualizarAlumno").show('slow');
                     }
                     else {
@@ -61,9 +61,10 @@ include '../DaoConnection/coneccion.php';
                         var informacion = "maestro=" + $("#maestro").val() + "&alumnos=" + info;
                         $.get('asignar.php', informacion, function() {
                             $('#alumnos').load("alumnosDisponibles.php");
-                            $('#exito').slideDown('slow');
-                            $('#exito').delay('1500');
-                            $('#exito').slideUp('slow');
+                              alertify.success("Exito Alumno Asignado");
+//                            $('#exito').slideDown('slow');
+//                            $('#exito').delay('1500');
+//                            $('#exito').slideUp('slow');
                         });
                     }
                 });

@@ -258,7 +258,7 @@ class daoServicio {
         $cn->cerrarBd();
     }
 
-    function dameAlumnos($grupo, $usuario, $idMateria) {
+    function  dameAlumnos($grupo, $usuario, $idMateria) {
         $cn = new coneccion();
 
         $sql = "select * 
@@ -274,8 +274,8 @@ class daoServicio {
 
         while ($rs = mysql_fetch_array($dtos)) {
             $alumnos = new alumnosinscritos();
-            $alumnos->setUsuario($rs[14]);
-            $alumnos->setNombre($rs[15] . " " . $rs[16] . " " . $rs[17]);
+            $alumnos->setUsuario($rs[16]);
+            $alumnos->setNombre($rs[17] . " " . $rs[18] . " " . $rs[19]);
             $datos[$cont] = $alumnos;
             $cont++;
         }

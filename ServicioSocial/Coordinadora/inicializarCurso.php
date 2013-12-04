@@ -129,7 +129,7 @@ $coneccion = new coneccion();
 
                         <select style="width: 120px" id="curso">
                             <option value="0">Curso</option>
-                            <option value="1">Enero-Agosto</option>
+                            <option value="1">Enero-Julio</option>
                             <option value="2">Verano</option>
                             <option value="3">Agosto-Diciembre</option>
                         </select>

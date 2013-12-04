@@ -25,7 +25,7 @@ $cn->cerrarBd();
 $crearGrupo->setNombreGrupo($Grupo);
 $crearGrupo->setIdMaestro($idMaestro);
 $crearGrupo->setIdMateria($idmateria);
-$crearGrupo->setAnio($_SESSION["cicloEscolar"]);
-$crearGrupo->setCurso($_SESSION["anio"]);
+$crearGrupo->setCurso($_SESSION["cicloEscolar"]);
+$crearGrupo->setAnio($_SESSION["anio"]);
 $dao->guardarNuevoGrupo($crearGrupo);
 ?>

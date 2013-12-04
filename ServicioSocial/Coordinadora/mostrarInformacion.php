@@ -28,6 +28,7 @@ echo '<br>';
 while ($rsDatos = mysql_fetch_array($datosArchivos)) {
     echo "<div style='float:left'><font size='4' face='Bookman Old Style'><a href='$rsDatos[2]' target='blank'>Documento</a></font></div>";
     echo '<br>';
+    echo '<br>';
 }
 if (mysql_affected_rows() == 0) {
     echo "<font size='2' face='Bookman Old Style'>No Hay Actividades Extraescolares</font>";

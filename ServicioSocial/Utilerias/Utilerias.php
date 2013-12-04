@@ -26,6 +26,7 @@ class Utilerias {
         $cabeceras = "MIME-Version: 1.0\r\n";
         $cabeceras .= "Content-type: text/html; charset=ISO-8859-1\r\n";
         $cabeceras .= "From: $de \r\n";
+        $mail->CharSet = 'UTF-8';
         ////Trabajando con PHPMailer
         ////Trabajando con PHPMailer
         //$mail = new PHPMailer();
