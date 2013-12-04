@@ -11,6 +11,8 @@
             webcam.set_api_url('ejecutafoto.php'); //PHP adonde va a recibir la imagen y la va a guardar en el servidor
             webcam.set_quality(90); // calidad de la imagen
             webcam.set_shutter_sound(true); // Sonido de flash
+        </script>
+        <script language="JavaScript">
             webcam.set_hook('onComplete', 'my_completion_handler');
             function do_upload() {
                 // subir al servidor
@@ -98,7 +100,7 @@
                             <input required  style="height: 30px" id="email" type="email" name="Email" placeholder="Email"/> 
                         </div> 
                     </div>
-                    <div class="row-fluid">
+<!--                    <div class="row-fluid">
                         <div align="center" id="cuadro_camara">    
                             <div id="visualizacionCamara" style="padding-top: 1%">
                                 <script language="JavaScript">
@@ -111,7 +113,7 @@
                             <br>
                             <br>
                         </div>
-                    </div> 
+                    </div> -->
                 </form>
             </div> 
             <div class="modal-footer">

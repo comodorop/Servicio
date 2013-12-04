@@ -13,16 +13,18 @@ $cn = new coneccion();
 if ($_REQUEST['guardaarchivo'] != null) {
     $nombre = $_FILES['buscaarchivo']['name'];
     $ruta = $_FILES['buscaarchivo']['tmp_name'];
-    $tamañoarchivo = $_FILES['buscaarchivo']['size'];
-    $tamañomaximo = 7000000;
+    $tipo = $_FILES['buscaarchivo']['type'];
+    $tamano = $_FILES['buscaarchivo']['size'];
+    $maximo = 700 * 1024;
     $ubicacion = "../alumnos/subidas/" . $nombre;
 
-    if (is_uploaded_file($ruta) && $tamañoarchivo >= $tamañomaximo) {
-        echo "Archivo muy grnade<BR>";
-        echo "El tamaÑo de tu archivo = " . $tamañoarchivo;
-        echo "K";
-    } else {
-//        if (is_uploaded_file($ruta)) {
+    $ext_permitidas = array('pdf');
+    $partes_nombre = explode('.', $nombre);
+    $extension = end($partes_nombre);
+    $ext_correcta = in_array($extension, $ext_permitidas);
+
+
+    if ($ext_correcta && $tamano <= $maximo) {
         if (copy($ruta, $ubicacion)) {
             $cargar = new cargaArchivos();
             $cargando = new daoServicio();
@@ -31,7 +33,8 @@ if ($_REQUEST['guardaarchivo'] != null) {
             $cargar->setNombreArchivo($nombre);
             $cargando->guardaArchivos($cargar);
         }
-//        }
+    } else {
+        echo '<script> alertify.error("Archivo invalido o muy grande.");</script>';
     }
 }
 ?>
