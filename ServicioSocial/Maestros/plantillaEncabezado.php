@@ -33,25 +33,24 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </a>
-
-                            <!-- Be sure to leave the brand out there if you want it shown -->
-                            <ul class="nav">
-                                <li><a href="index.php">Inicio</a> </li>
-                            </ul>
+                            <?php
+                            $val2 = $_SESSION["tipo"];
+                            if ($val2 == 2) {
+                                ?>
+                                <ul class="nav">
+                                    <li><a href="index.php">Inicio</a> </li>
+                                </ul>
+                            <?php } ?>
                             <!-- Everything you want hidden at 940px or less, place within here -->
                             <div class="nav-collapse collapse">
                                 <ul class="nav">
-
-                                    <li class="divider-vertical"></li>
-                                    <li><a href="comentarios.php">Avisos</a> </li>
                                     <li class="divider-vertical"></li>
                                     <li><a href="asignacionCalificaciones.php">Asignar Calificaciones</a> </li>
                                     <?php
-//                           $dao = new DaoPablo();
-                                    $val2 = $_SESSION["tipo"];
-//                                   $dao->dameMenuMaestros($_SESSION["Usuario"]);
                                     if ($val2 == 2) {//qui si el se conecta es tutor le sale
                                         ?>
+                                        <li class="divider-vertical"></li>
+                                        <li><a href="comentarios.php">Avisos</a> </li>
                                         <li class="divider-vertical"></li>
                                         <li><a href="reporteSession.php">Session de Tutorias</a> </li>
                                         <li class="divider-vertical"></li>
