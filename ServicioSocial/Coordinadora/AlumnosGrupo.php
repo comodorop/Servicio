@@ -14,30 +14,45 @@ $coneccion = new coneccion();
         </style>
         <script>
             $(document).ready(function() {
-                $('#bien').hide();
+//                $('#bien').hide();
                 $('#GuardarDatos').click(function() {
 
                     var datos = 'Asignatura=' + $('#Asignatura').val() +
                             '&Grupo=' + $('#Grupo').val() +
                             '&Usuario=' + $('#usuario').val();
-                    if ($('#Asignatura').val() != "" || $('#Grupo').val() != "" || $('#Grupo').val() != "") {
+
+                    var a = $('#Asignatura').val();
+                    var b = $('#Grupo').val()
+                    var c = $('#usuario').val();
+                    if (a !== "" && b !== "" && c !== "") {
+
                         $.get('GrupoAlumno.php', datos, function(valor) {
                             $('#usuario').val("");
                             var info = $.parseJSON(valor);
-                            if (info > 0) {
+
+                            if (info == 1) {
                                 alertify.success("Se han guardado los datos");
                             }
-                            else {
+                            if (info == 0) {
                                 alertify.error("Ya existen los datos");
-                            }
 
+                            }
+                            if (info == 3) {
+                                alertify.error("El grupo no existe");
+
+                            }
+                            if (info == 2) {
+                                alertify.error("El alumno ya existe en esa materia");
+
+                            }
                         });
+
                     } else {
                         alertify.error("Todos los datos son obligatorios");
                     }
-
                 })
             });
+
         </script>
     </head> 
 
@@ -47,9 +62,9 @@ $coneccion = new coneccion();
                 <h3>Grupos Alumnos</h3>
                 <div class="well well-sm">
                     <center>
-                        <div id="bien" class="alert alert-success">
-                            <strong>Se ha creado el grupo satisfactoriamente</strong>
-                        </div>
+                        <!--                        <div id="bien" class="alert alert-success">
+                                                    <strong>Se ha creado el grupo satisfactoriamente</strong>
+                                                </div>-->
 
                         <div class="input-append" style="float: left; margin-left: 40px">
                             <input  id="Grupo" type="text" placeholder="Grupo...." list="listaGrupo" style=" height: 30px"/>

@@ -10,14 +10,20 @@ class dao {
         $validando = mysql_query($validar, $cn->Conectarse());
         $validando = mysql_affected_rows();
         if ($validando <= 0) {
-
-            $sql = "INSERT INTO alumnosinscritos(idGrupo,usuario, idMateria) 
+            $validar2 = "SELECT * FROM alumnosinscritos Where  idMateria = " . $A->getIdMateria() . " and usuario = '" . $A->getUsuario() . "' ";
+            $validando2 = mysql_query($validar2, $cn->Conectarse());
+            $validando2 = mysql_affected_rows();
+            if ($validando2 <= 0) {
+                $sql = "INSERT INTO alumnosinscritos(idGrupo,usuario, idMateria) 
 VALUES (
 '" . $A->getIdGrupo() . "', '" . $A->getUsuario() . "','" . $A->getIdMateria() . "'
 )";
-            mysql_query($sql, $cn->Conectarse());
-            $cn->cerrarBd();
-            return 1;
+                mysql_query($sql, $cn->Conectarse());
+                $cn->cerrarBd();
+                return 1;
+            } else {
+                return 2;
+            }
         } else {
 
             return 0;
@@ -26,10 +32,9 @@ VALUES (
 
     function guardarNuevoGrupo(crearGrupo $C) {
         $cn = new coneccion();
-        $sql = "INSERT INTO gruposalumnos( nombreGrupo,idMateria, idMaestro) 
+        $sql = "INSERT INTO gruposalumnos( nombreGrupo,idMateria, idMaestro, curso, anio) 
 VALUES (
-'" . $C->getNombreGrupo() . "', '" . $C->getIdMateria() . "','" . $C->getIdMaestro() . "'
-)";
+'" . $C->getNombreGrupo() . "', '" . $C->getIdMateria() . "','" . $C->getIdMaestro() . "','".$C->getCurso()."', '".$C->getAnio()."')";
         mysql_query($sql, $cn->Conectarse());
         $cn->cerrarBd();
     }
@@ -404,6 +409,7 @@ VALUES (
     }
 
     function editarEvento(guardarEvento $A) {
+        include '../DaoConnection/coneccion.php';
         $cn = new coneccion();
         $sql = "UPDATE guardarevento SET anio = '" . $A->getAnio() . "', cicloEscolar = '" . $A->getCicloEscolar() . "', evento = '" . $A->getEvento() . "', fechaInicial = '" . $A->getFechaInicial() . "', fechaFinal = '" . $A->getFechaFinal() . "' WHERE anio = '" . $A->getAnio() . "' and cicloEscolar = '" . $A->getCicloEscolar() . "' and evento = '" . $A->getEvento() . "'";
         mysql_query($sql, $cn->Conectarse());

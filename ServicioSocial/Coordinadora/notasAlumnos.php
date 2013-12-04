@@ -34,21 +34,21 @@ include './plantillaEncabezado.php';
     </head>
     <body>
         <div class="container stlconten">
-            <div style="margin: 3% 3% 3% 3%">
+            <div>
                 <h3>Consultar Alumnos</h3>
-                <div class="well well-sm">
+                <div class="well well-sm" style="margin: 3% 3% 3% 3%">
                     <div class="input-append" style="float: left; margin-left: 40px">
                         <input  id="datosBuscar" type="text" placeholder="Matricula o Nombre...." list="listaAlumnos"/>
                         <datalist id="listaAlumnos">
                         </datalist>
-                        <input type="submit" class="btn btn-primary" value="Buscar" id="Buscar"/>
                     </div>
+                    <input type="submit" class="btn btn-primary" value="Buscar" id="Buscar"/>
                     <br>
                     <br>
-                    <br>
-                    <br>
-                    <div id="Informacion" style="float: left; width: 400px; margin-left: 40px; ">
-                    </div>
+                </div>
+                
+                <div  class="well well-sm" id="Informacion" style="float: left; width: 400px; margin-left: 40px; ">
+
                 </div>
             </div>
         </div>
