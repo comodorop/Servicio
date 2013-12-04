@@ -18,7 +18,6 @@ include './plantilla.php';
                 $('#materias').change(function() {
                     
                     materia = $('#materias').val();
-                    alert(materia);
                     if (materia > 0) {
                         $('#calificaciones').load('sacarCalificaciones.php?materias=' + materia);
                     }
