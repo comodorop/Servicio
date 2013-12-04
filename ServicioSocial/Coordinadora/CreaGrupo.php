@@ -1,5 +1,8 @@
 <?php
 session_start();
+include './validacionseSession.php';
+$validacion = new validacionseSession();
+$validacion->verificacionDeLogue();
 include '../DaoConnection/coneccion.php';
 include './plantillaEncabezado.php';
 $coneccion = new coneccion();
@@ -13,26 +16,32 @@ $coneccion = new coneccion();
                 background-color: white;
                 margin-top: -20px
             }
-            
+
         </style>
         <script>
             function eliminar(id) {
                 var informacion = "id=" + id;
                 $.get('eliminarGrupo.php', informacion, function(tabla) {
                     $('#tablaGrupos').html(tabla);
+                    alertify.success("Exito! Registro eliminado");
                 });
             }
+
             function actualizar(id) {
                 $("#datos").slideUp("slow");
                 var info = "id=" + id;
                 $.get('actualizarGrupos.php', info, function(datos) {
                     $("#datos").html(datos);
+                    $("#GuardarDatos").hide('slow');
                     $("#datos").show('slow');
+                    $("#Actualizar").show('slow');
+                    $("#Cancelar").show('slow');
+
                 });
             }
-
             $(document).ready(function() {
-
+                $("#Actualizar").hide();
+                $("#Cancelar").hide();
                 $('#bien').hide();
                 $('#Existen').hide();
                 $('#mal').hide();
@@ -42,6 +51,7 @@ $coneccion = new coneccion();
                     var Asignatura = $('#Asignatura').val();
                     var Maestro = $('#Maestro').val();
                     if (IdentificadorGrupo == "" || Asignatura == "" || Maestro == "") {
+                        alertify.error("Llene todos los campos");
                         $('#mal').show('slow');
                         $('#mal').hide('slow');
                     }
@@ -62,11 +72,37 @@ $coneccion = new coneccion();
                                     $("#Maestro").val('');
                                 });
                             } else {
-                                $('#Existen').show('slow');
-                                $('#Existen').hide('slow');
+                                alertify.error("Este Grupo ya esta asignado");
                             }
                         });
                     }
+                });
+
+                $("#Actualizar").click(function() {
+                    var datos = 'Asignatura=' + $('#Asignatura').val() +
+                            '&IdentificadorGrupo=' + $('#IdentificadorGrupo').val() +
+                            '&Maestro=' + $('#Maestro').val() + '&id=' + $("#idValor").val();
+                    $.get('actualizarCreaGrupo.php', datos, function() {
+                        $('#Asignatura').val("");
+                        $('#Maestro').val("");
+                        $('#IdentificadorGrupo').val("");
+                        $('#tablaGrupos').load('recargarTablaGrupos.php');
+                        $("#datos").load('nuevoRegistro.php');
+                        $("#Actualizar").hide('slow');
+                        $("#Cancelar").hide('slow');
+                        $("#GuardarDatos").show('slow');
+                        alertify.success("Exito! Registro Actualizado");
+                    });
+                });
+                $("#Cancelar").click(function() {
+                    $('#Asignatura').val("");
+                    $('#Maestro').val("");
+                    $('#IdentificadorGrupo').val("");
+                    $('#tablaGrupos').load('recargarTablaGrupos.php');
+                    $("#datos").load('nuevoRegistro.php');
+                    $("#Actualizar").hide('slow');
+                    $("#Cancelar").hide('slow');
+                    $("#GuardarDatos").show('slow');
                 });
             });
         </script>
@@ -134,8 +170,10 @@ $coneccion = new coneccion();
                         <input  id="Maestro" type="text" placeholder="Maestro...." list="listaMaestro" style=" height: 30px"/>
 
                         <br><br> 
-                        <input type="submit" class="btn btn-primary" value="EnviarDatos" id="GuardarDatos"/>
                     </div>
+                    <input type="submit" class="btn btn-primary" value="EnviarDatos" id="GuardarDatos"/>
+                    <input type='submit' class='btn btn-success' value='Actualizar' id='Actualizar'/>
+                    <input type='submit' class='btn btn-warning' value='Cancelar' id='Cancelar'/>
                     <br>
                     <br>
                     <table id="tablaGrupos" class="table table-hover">

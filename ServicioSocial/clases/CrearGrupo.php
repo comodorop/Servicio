@@ -12,11 +12,38 @@
  */
 class CrearGrupo {
 
+    private $idGrupo;
     private $nombreGrupo;
     private $idMateria;
     private $idMaestro;
     private $nombreMaestro;
     private $nombreMateria;
+    private $curso;
+    private $anio;
+
+    public function getCurso() {
+        return $this->curso;
+    }
+
+    public function setCurso($curso) {
+        $this->curso = $curso;
+    }
+
+    public function getAnio() {
+        return $this->anio;
+    }
+
+    public function setAnio($anio) {
+        $this->anio = $anio;
+    }
+
+    public function getIdGrupo() {
+        return $this->idGrupo;
+    }
+
+    public function setIdGrupo($idGrupo) {
+        $this->idGrupo = $idGrupo;
+    }
 
     public function getNombreMaestro() {
         return $this->nombreMaestro;

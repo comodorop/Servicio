@@ -309,6 +309,7 @@ class daoServicio {
         $datos = mysql_query($sql, $cn->Conectarse());
         $crea = new CrearGrupo();
         while ($rs = mysql_fetch_array($datos)) {
+            $crea->setIdGrupo($rs["idGrupo"]);
             $crea->setNombreGrupo($rs["nombreGrupo"]);
             $crea->setNombreMaestro($rs["maestro"]);
             $crea->setNombreMateria($rs["materia"]);

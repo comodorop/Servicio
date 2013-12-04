@@ -1,4 +1,7 @@
 <?php
+include './validacionseSession.php';
+$validicaciones = new validacionseSession();
+$validicaciones->verificacionDeLogue();
 include './plantillaEncabezado.php';
 include '../DaoConnection/coneccion.php';
 $coneccion = new coneccion();
@@ -77,6 +80,7 @@ $coneccion = new coneccion();
                                     alertify.confirm("<p>Desea cambiar los datos?.<br><br><b>ENTER</b> y <b>ESC</b> corresponden a <b>Aceptar</b> o <b>Cancelar</b></p>", function(e) {
                                         if (e) {
                                             $.get('editarInicioCurso.php', datos, function() {
+                                                $("#tabla").load("tablaInicioCurso.php");
 
                                             });
                                             alertify.success("Se han Guardado los cambios'" + alertify.labels.ok + "'");
@@ -102,7 +106,7 @@ $coneccion = new coneccion();
                 <div style="margin: 3% 3% 3% 3%">
                     <h3>Iniciar Curso</h3>
                     <div class="well well-sm pagination-centered">
-                        <table id="tabla" border ="1" class="table table-hover"> 
+                        <table id="tabla" class="table table-hover"> 
                             <?php
                             $sql = "SELECT anio, cicloEscolar, fechaInicial, fechaFinal,c.curso FROM fechascicloescolar f, curso c
                                 where f.cicloEscolar = c.id";
@@ -134,7 +138,7 @@ $coneccion = new coneccion();
                         Fecha Inicial:<input type="text" name="datepicker" id="fechaInicial" readonly="readonly" size="12" />
                         Fecha Final:<input type="text" name="datepicker" id="fechaFinal" readonly="readonly" size="12" />
                         <br>
-                        <button id="aceptar" class="" > Aceptar </button>
+                        <button class="btn btn-success" id="aceptar" class="" > Aceptar </button>
                     </div>
                 </div>
             </div>
