@@ -20,26 +20,39 @@ $coneccion = new coneccion();
                     var datos = 'Asignatura=' + $('#Asignatura').val() +
                             '&Grupo=' + $('#Grupo').val() +
                             '&Usuario=' + $('#usuario').val();
-                    if ($('#Asignatura').val() != "" || $('#Grupo').val() != "" || $('#Grupo').val() != "") {
 
-                    $.get('GrupoAlumno.php', datos, function(valor) {
-                        $('#usuario').val("");
-                        var info = $.parseJSON(valor);
+                    var a = $('#Asignatura').val();
+                    var b = $('#Grupo').val()
+                    var c = $('#usuario').val();
+                    if (a !== "" && b !== "" && c !== "") {
 
-                        if (info = 1) {
-                            alertify.success("Se han guardado los datos");
-                        }
-                        if (info = 0) {
-                            alertify.error("Ya existen los datos");
+                        $.get('GrupoAlumno.php', datos, function(valor) {
+                            $('#usuario').val("");
+                            var info = $.parseJSON(valor);
 
-                        }
-                        );
+                            if (info == 1) {
+                                alertify.success("Se han guardado los datos");
+                            }
+                            if (info == 0) {
+                                alertify.error("Ya existen los datos");
+
+                            }
+                            if (info == 3) {
+                                alertify.error("El grupo no existe");
+
+                            }
+                            if (info == 2) {
+                                alertify.error("El alumno ya existe en esa materia");
+
+                            }
+                        });
+
                     } else {
-                    alertify.error("Todos los datos son obligatorios");
-                }
-
+                        alertify.error("Todos los datos son obligatorios");
+                    }
                 })
             });
+
         </script>
     </head> 
 
@@ -49,9 +62,9 @@ $coneccion = new coneccion();
                 <h3>Grupos Alumnos</h3>
                 <div class="well well-sm">
                     <center>
-<!--                        <div id="bien" class="alert alert-success">
-                            <strong>Se ha creado el grupo satisfactoriamente</strong>
-                        </div>-->
+                        <!--                        <div id="bien" class="alert alert-success">
+                                                    <strong>Se ha creado el grupo satisfactoriamente</strong>
+                                                </div>-->
 
                         <div class="input-append" style="float: left; margin-left: 40px">
                             <input  id="Grupo" type="text" placeholder="Grupo...." list="listaGrupo" style=" height: 30px"/>
