@@ -2,7 +2,7 @@
 session_start();
 include '../clases/guardarEvento.php';
 include '../Dao/dao.php';
-$cn = new coneccion();
+//$cn = new coneccion();
 $EditarEventos= new guardarEvento(); 
 $dao= new dao();
 $cicloEvento =$_GET["Curso"];

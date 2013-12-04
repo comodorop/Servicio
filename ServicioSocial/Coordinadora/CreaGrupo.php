@@ -86,16 +86,10 @@ $coneccion = new coneccion();
                             <?php
                         }
                         ?>
-                    </datalist> <datalist id="listaAsignaturas">
-                        <?php
-                        $sql = "Select materia from materias ";
-                        $datos = mysql_query($sql, $coneccion->Conectarse());
-                        While ($rs = mysql_fetch_array($datos)) {
-                            ?>
-                            <option value="<?php echo utf8_encode($rs["materia"]); ?>"><?php echo utf8_encode($rs["materia"]); ?></option>
-                            <?php
-                        }
-                        ?><datalist id="listaAsignaturas">
+                    </datalist>
+                    
+                    
+                            <datalist id="listaAsignaturas">
                         <?php
                         $sql = "Select materia from materias ";
                         $datos = mysql_query($sql, $coneccion->Conectarse());

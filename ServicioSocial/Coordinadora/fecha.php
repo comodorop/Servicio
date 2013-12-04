@@ -11,10 +11,10 @@ include './plantillaEncabezado.php';
 
     <script>
         $(document).ready(function() {
-            $('#mal').hide();
-            $('#alertas').hide();
-            $('#bien').hide();
-            $('#revision').hide();
+//            $('#mal').hide();
+//            $('#alertas').hide();
+//            $('#bien').hide();
+//            $('#revision').hide();
             jQuery(function($) {
                 $.datepicker.regional['es'] = {
                     closeText: 'Cerrar',
@@ -49,15 +49,13 @@ include './plantillaEncabezado.php';
 //                validarFechaMenorActual(fechaInicial, fechaFinal);
 
                 if (fechaInicial == "" || fechaFinal == "" || Evento == 0) {
-                    $('#revision').show("slow");
-                    $('#revision').hide("slow");
+                   alertify.error("Todos los campos son obligatorios");
 
                 } else {
                     var fechaini = $('#fechaInicial').val()
                     var fechafin = $('#fechaFinal').val()
                     if (Date.parse(fechaini) >= Date.parse(fechafin)) {
-                        $('#mal').show("slow");
-                        $('#mal').hide("slow");
+                        alertify.error("Los orden de las fechas es incorrecto");
                         return false;
                     }
                     else {
@@ -71,23 +69,24 @@ include './plantillaEncabezado.php';
                         $.post('verificacionEvento.php', datos, function(respuesta) {
                             var info = $.parseJSON(respuesta);
                             if (info > 0) {
-                                $('#bien').show("slow");
-                                $('#bien').hide("slow");
+                                alertify.success("Los datos se han guardado exitosamente");
                                 $.get('GuardarEvento.php', datos, function() {
                                 });
                             }
                             else {
-                                $('#alertas').show("slow");
-                                $("#okey").click(function() {
-                                    $.get('editarEvento.php', datos, function() {
-                                        $('#alertas').hide("slow");
-                                        $('#bien').show("slow");
-                                        $('#bien').hide("slow");
+                                alertify.confirm("<p>Los datos de este evento ya existen,¿desea cambiarlos?.<br><br><b>ENTER</b> y <b>ESC</b> corresponden a <b>Aceptar</b> o <b>Cancelar</b></p>", function(e) {
+                    if (e) {
+                         $.get('editarEvento.php', datos, function() {
+                                        alertify.success("Los datos se han cambiado exitosamente");
                                     });
-                                });
-                                $("#NoOkey").click(function() {
-                                    $('#alertas').hide("slow");
-                                });
+                        
+                    } else {
+                        alertify.error("Se han cancelado los cambios");
+                    }
+                });
+                                
+                                
+                                
                             }
                         });
 
@@ -100,13 +99,13 @@ include './plantillaEncabezado.php';
     <body>
         <div class="container">
             <center>
-                <div id="alertas" class="alert alert-block">
+<!--                <div id="alertas" class="alert alert-block">
                     <strong>Ya existe este Evento registrado, desea cambiarlo por el actual? </strong>
                     <button id="okey" type="button" class="alert-danger">oko</button> 
                     <button id="NoOkey" type="button" class="alert-success">No</button> 
 
 
-                </div>
+                </div>-->
 
 
                 <div class="span12"  style="margin: auto; background-color: white; margin-top: -20px">
@@ -140,7 +139,7 @@ include './plantillaEncabezado.php';
 
                     </select>
 
-                    <div id="mal" class="alert alert-error">
+<!--                    <div id="mal" class="alert alert-error">
                         <strong>mal!!!!!!! prr!!!</strong>
                     </div>
                     <div id="revision" class="alert alert-info">
@@ -148,7 +147,7 @@ include './plantillaEncabezado.php';
                     </div>
                     <div id="bien" class="alert alert-success">
                         <strong>Bien!!! se han guardado los datos</strong>
-                    </div>
+                    </div>-->
                     <br>
                     <input type="button" id="aceptar" value="Aceptar"/>
                 </div>
