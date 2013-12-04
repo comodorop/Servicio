@@ -12,6 +12,7 @@ while ($rs = mysql_fetch_array($datos)) {
     echo"<div class='well well-sm' style=width: 400px; margin-left: 40px;>";
     echo "<div style='float:left'><font size='4' face='Bookman Old Style'>Usuario: $rs[1].</font></div>";
     echo '<br>';
+     echo '<br>';
     echo "<div><font size='4' face='Bookman Old Style'>Nombre: $rs[2] &nbsp $rs[3] &nbsp $rs[4].</font></div>";
     echo"</div>";
 }

@@ -87,7 +87,9 @@ include '../DaoConnection/coneccion.php';
                                 <option value="0">Seleccione Maestro</option>
                                 <?php
                                 $cn = new coneccion();
-                                $sql = "SELECT * FROM maestros";
+                                $sql = "SELECT * FROM maestros, usuarios 
+                                        WHERE maestros.usuario = usuarios.usuario
+                                        and usuarios.tipo=2";
                                 $datos = mysql_query($sql, $cn->Conectarse());
                                 while ($rs = mysql_fetch_array($datos)) {
                                     ?>

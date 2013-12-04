@@ -2,15 +2,14 @@
 include './validacionseSessionAlumnos.php';
 $validacion = new validacionseSessionAlumnos();
 $validacion->verificacionDeLogueAlumnos();
+include '../DaoConnection/coneccion.php';
 include './plantilla.php';
 session_start();
-include '../DaoConnection/coneccion.php';
 $cn = new coneccion();
-$usuario = $_SESSION["Usuario"];
-$sql = "select * from  tutotmaestrosalumnos t , maestros m , avisostutor  av where matricula ='$usuario' 
+ $usuario = $_SESSION['UsuarioAlumno'];
+$sql = "select titulo,detalles from  tutotmaestrosalumnos t , maestros m , avisos  av where matricula ='$usuario' 
     and t.idMaestro = m.id and m.usuario = av.usuario and av.control = 3";
 $datos = mysql_query($sql, $cn->Conectarse());
-$cn->cerrarBd();
 ?>
 <div class="container">
 

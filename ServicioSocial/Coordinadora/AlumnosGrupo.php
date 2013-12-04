@@ -1,4 +1,7 @@
 <?php
+include './validacionseSession.php';
+$validacion = new validacionseSession();
+$validacion->verificacionDeLogue();
 include '../DaoConnection/coneccion.php';
 include '../Coordinadora/plantillaEncabezado.php';
 $coneccion = new coneccion();
@@ -50,7 +53,7 @@ $coneccion = new coneccion();
                     } else {
                         alertify.error("Todos los datos son obligatorios");
                     }
-                })
+                });
             });
 
         </script>

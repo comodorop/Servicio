@@ -27,7 +27,13 @@ include './plantillaEncabezado.php';
                     $('#Informacion').slideUp('slow');
                     var informacion = $('#datosBuscar').val();
                     informacion = quitarEspacion(informacion);
-                    $('#Informacion').load('mostrarInformacion.php?datos=' + informacion);
+                    if (informacion == '') {
+                        alertify.error("No hay datos para buscar");
+                    }
+                    else {
+                        $('#Informacion').load('mostrarInformacion.php?datos=' + informacion);
+                    }
+
                 });
             });
         </script>
@@ -46,7 +52,7 @@ include './plantillaEncabezado.php';
                     <br>
                     <br>
                 </div>
-                
+
                 <div  class="well well-sm" id="Informacion" style="float: left; width: 400px; margin-left: 40px; ">
 
                 </div>

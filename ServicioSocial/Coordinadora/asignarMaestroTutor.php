@@ -23,6 +23,7 @@ include '../DaoConnection/coneccion.php';
                     var status = $("#status").val();
                     var informacion = 'matricula=' + matricula + '&status=' + status;
                     $.get('guardarStatus.php', informacion, function() {
+                         alertify.success("Exito Status Cambiado");
                     });
                 });
             });

@@ -1,10 +1,16 @@
+
+<?php 
+include './validacionseSession.php';
+$validacion = new validacionseSession();
+$validacion->verificacionDeLogue();
+include './plantillaEncabezado.php';?>
 <link rel="stylesheet" type="text/css" href="../css/css.css">
 <link rel="stylesheet" type="text/css" href="../bootsTrap2/css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="../bootsTrap2/css/bootstrap-responsive.css"/>
-
 <script src="../bootsTrap2/js/jquery.min.js"></script>
 <script src="../bootsTrap2/js/bootstrap.js"></script>
-<?php $usuario = $_GET["idusuario"]; ?>
+<?php 
+$usuario = $_GET["idusuario"]; ?>
 <script language="JavaScript">
     $(document).ready(function() {
         $("#Aceptar").click(function() {
@@ -28,7 +34,6 @@
 
 <?php
 include '../DaoConnection/coneccion.php';
-include './plantillaEncabezado.php';
 ?>
 <div class="container" style="background-color: white; margin-top: -20px;">
     <!--<img src="" class="img-rounded" width="140px;" height="140px;">-->

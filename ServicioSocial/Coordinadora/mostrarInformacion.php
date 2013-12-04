@@ -23,7 +23,7 @@ while ($rs = mysql_fetch_array($datos)) {
 $datosArchivos = mysql_query($sqlDatos, $cn->Conectarse());
 echo '<div>';
 echo '<br>';
-echo "<font size='5' face='Bookman Old Style'>Actividades Extraescolares</font>";
+echo "<font size='5' face='Bookman Old Style'>Actividades Complementarias</font>";
 echo '<br>';
 while ($rsDatos = mysql_fetch_array($datosArchivos)) {
     echo "<div style='float:left'><font size='4' face='Bookman Old Style'><a href='$rsDatos[2]' target='blank'>Documento</a></font></div>";
