@@ -145,4 +145,12 @@ class DaoPablo {
         return $listaMaterias;
     }
 
+    function ActualizarCrearGrupo(CrearGrupo $creaGrupo) {
+//        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $sql = "UPDATE gruposalumnos SET nombreGrupo = '" . $creaGrupo->getNombreGrupo() . "', idMateria = '" . $creaGrupo->getIdMateria() . "', idMaestro = '" . $creaGrupo->getIdMaestro() . "'
+         WHERE idGrupo='" . $creaGrupo->getIdGrupo() . "'";
+        mysql_query($sql, $cn->Conectarse());
+    }
+
 }

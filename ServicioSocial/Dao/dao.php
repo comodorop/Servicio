@@ -26,10 +26,9 @@ VALUES (
 
     function guardarNuevoGrupo(crearGrupo $C) {
         $cn = new coneccion();
-        $sql = "INSERT INTO gruposalumnos( nombreGrupo,idMateria, idMaestro) 
+        $sql = "INSERT INTO gruposalumnos( nombreGrupo,idMateria, idMaestro, curso, anio) 
 VALUES (
-'" . $C->getNombreGrupo() . "', '" . $C->getIdMateria() . "','" . $C->getIdMaestro() . "'
-)";
+'" . $C->getNombreGrupo() . "', '" . $C->getIdMateria() . "','" . $C->getIdMaestro() . "','".$C->getCurso()."', '".$C->getAnio()."')";
         mysql_query($sql, $cn->Conectarse());
         $cn->cerrarBd();
     }

@@ -7,11 +7,11 @@ $sql = "SELECT idGrupo, nombreGrupo, materia, maestro FROM gruposalumnos ga, mat
 $datos4 = mysql_query($sql, $cn->Conectarse());
 $datos = "<table id = 'tablaGrupos' class = 'table table-hover'>";
 $datos.= "<tr>
-          <td><center>Grupo</center></td>
-          <td><center>Materia</center></td>
-          <td><center>Maestros</center></td>
-          <td><center>Actualizar</center></td>
-          <td><center>Eliminar</center></td>
+          <td><center><strong>Grupo</strong></center></td>
+          <td><center><strong>Materia</strong></center></td>
+          <td><center><strong>Maestros</strong></center></td>
+          <td><center><strong>Actualizar</strong></center></td>
+          <td><center><strong>Eliminar</strong></center></td>
           </tr>";
 while ($rsLista = mysql_fetch_array($datos4)) {
     $datos .="<tr>";
