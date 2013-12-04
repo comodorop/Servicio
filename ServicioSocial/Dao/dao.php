@@ -403,7 +403,8 @@ VALUES (
     }
 
     function editarEvento(guardarEvento $A) {
-        $cn = new coneccion();
+        include '../DaoConnection/coneccion.php';
+      $cn = new coneccion();
         $sql = "UPDATE guardarevento SET anio = '" . $A->getAnio() . "', cicloEscolar = '" . $A->getCicloEscolar() . "', evento = '" . $A->getEvento() . "', fechaInicial = '" . $A->getFechaInicial() . "', fechaFinal = '" . $A->getFechaFinal() . "' WHERE anio = '" . $A->getAnio() . "' and cicloEscolar = '" . $A->getCicloEscolar() . "' and evento = '" . $A->getEvento() . "'";
         mysql_query($sql, $cn->Conectarse());
         $cn->cerrarBd();

@@ -17,15 +17,21 @@ While ($rs = mysql_fetch_array($datosid)) {
 }
 $idGrupos = "Select  idGrupo from gruposAlumnos where nombreGrupo = '$Grupo'";
 $datosGrupos = mysql_query($idGrupos, $cn->Conectarse());
+$validandox = mysql_affected_rows();
+if($validandox > 0){
 While ($rs2 = mysql_fetch_array($datosGrupos)) {
     $idGrupo = $rs2["idGrupo"];
 }
-
 $cn->cerrarBd();
 $GrupoAlumno->setIdGrupo($idGrupo);
 $GrupoAlumno->setIdMateria($idmateria);
 $GrupoAlumno->setUsuario($usuario);
 $valor = $dao->guardarAlumnoGrupo($GrupoAlumno);
 echo json_encode($valor);
+}else {
+    $valor = 3;
+    echo json_encode($valor);
+}
+
 ?>
 
