@@ -38,6 +38,8 @@ $validacion->verificacionDeLogueAlumnos();
                     var mail = $("#mail").val();
                     var info = "nombre=" + nombre + "&app=" + app + "&apm=" + apm + "&mail=" + mail;
                     $.get('enviarCodigo.php', info, function() {
+                        alertify.alert("<b>Código Enviado</b><br>Un código de verificación ha sido enviado a tu correo electrónico.", function() {
+                        });
                         $("#codigo").show('slow');
                         $("#aceptarVerificar").show('slow');
                     });
