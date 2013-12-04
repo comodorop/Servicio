@@ -28,12 +28,26 @@ include './plantillaEncabezado.php';
         <div class="container stlconten">
             <div style="margin: 3% 3% 3% 3%">
                 <div class="well well-sm">
-                    <select id="avisosaMostrar"name="mostrar">
-                        <option value="0">Seleccione avisos a mostrar</option>
-                        <option value="2">Maestros</option>
-                        <option value="3">Alumnos</option>
-                    </select>
-                    <div id="avisos"></div>
+                    <?php
+                    include '../DaoConnection/coneccion.php';
+                    $cn = new coneccion();
+                    $sql = "SELECT * FROM avisos a, usuarios u, maestros m
+                            WHERE a.control=1
+                            and m.usuario = u.usuario
+                            and u.usuario = a.usuario";
+                    $datos = mysql_query($sql, $cn->Conectarse());
+
+                    while ($row = mysql_fetch_array($datos)) {
+                        echo "<table class='table table-hover'>
+                            <tr>Escrito por: " . $row["maestro"] . " &nbsp; </tr>
+                            <br>
+                            <tr><strong>" . $row["titulo"] . "</strong></tr>
+                            <br>
+                            <tr>" . $row["detalles"] . "</tr>
+                            ";
+                    }
+                    echo '</table>';
+                    ?>
                 </div>
             </div>
         </div>

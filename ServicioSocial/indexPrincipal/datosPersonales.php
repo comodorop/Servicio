@@ -13,19 +13,6 @@
             webcam.set_shutter_sound(true); // Sonido de flash
         </script>
         <script language="JavaScript">
-            webcam.set_hook('onComplete', 'my_completion_handler');
-            function do_upload() {
-                // subir al servidor
-                document.getElementById('upload_results');
-                webcam.upload();
-            }
-            $(function() {
-                //Para escribir solo letras
-                $('#usuario').validCampoFranz('0123456789abcdefghijklmnñopqrstuvwxyzáéiou0123456789');
-                $('#nombres').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
-                $('#apellidoP').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
-                $('#apellidoM').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
-            });
             $(document).ready(function() {
                 $("#oculta").hide();
                 $("#cancelar").click(function() {
@@ -81,7 +68,7 @@
                 <form class="alguna" name="guardar">
                     <div class="row-fluid">
                         <div class="span6">
-                            <input style="height: 30px" id="usuario" type="text" name="usuario" placeholder="Usuario" /> 
+                            <input style="height: 30px" id="usuario" type="text" name="usuario" placeholder="Matricula" /> 
                         </div> 
                         <div>
                             <input  style="height: 30px" id="nombres" type="text" name="nombres" placeholder="Nombre(s)"/> 
