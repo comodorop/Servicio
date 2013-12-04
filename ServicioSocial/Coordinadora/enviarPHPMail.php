@@ -60,7 +60,8 @@ $mail->Password = "catscagats"; //Aqui va la contraseña valida de tu correo
 $mail->Subject = $asunto; //El asunto de correo
 $mail->Body = $pass; //$mensaje; //El mensaje de correo
 $mail->WordWrap = 50; //# de columnas
-$mail->MsgHTML($mensaje); //Se indica que el cuerpo del correo tendra formato HTML
+$mail->MsgHTML($mensaje); 
+$mail->CharSet = 'UTF-8';//Se indica que el cuerpo del correo tendra formato HTML
 
 if ($mail->Send()) {//Enviamos el correo por PHPMailer
     $respuesta = "El mensaje a sido enviado desde tu cuenta de Gmail :)";

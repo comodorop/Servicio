@@ -1,30 +1,17 @@
 
 <?php
-include '../DaoConnection/coneccion.php';
 session_start();
+include '../DaoConnection/coneccion.php';
 include './plantilla.php';
-include '../Dao/dao.php';
 include './validacionseSessionAlumnos.php';
-include '../clases/fechascicloescolar.php';
-
-$dao = new Dao();
-$fechascicloescolar = new fechascicloescolar();
 $validacion = new validacionseSessionAlumnos();
 $validacion->verificacionDeLogueAlumnos();
 $matricula = $_SESSION["UsuarioAlumno"];
-
-$anio = $_SESSION["anio"];
-$ciclo = $_SESSION["cicloEscolar"];
-
-//$fechascicloescolar->setmatricula($matricula);
-$fechascicloescolar->setAnio($anio);
-$fechascicloescolar->setCicloEscolar($ciclo);
-$valido = $dao->validarprecarga($fechascicloescolar);
-//$validoPrecarga = $dao->validarPrecargaHecha($fechascicloescolar);
+$valido = $_SESSION["validarFechas"];
 if ($valido != true) {
     ?> <script>  alertify.alert("<b>No es epoca de carga de materias</b>", function() {
-                document.location.href = 'index.php';
-            });</script> <?php
+            document.location.href = 'index.php';
+        });</script> <?php
 } else {
     ?>
     <html>
@@ -116,6 +103,7 @@ if ($valido != true) {
                                 <option value="0">En que horario?</option>
                                 <option value="Matutino">Matutino</option>
                                 <option value="Vespertino">Vespertino</option>
+                                <
                             </select> 
                             <div id="bien" class="alert alert-success">
                                 <strong>Se han Guardado las materias satisfactoriamente</strong>
@@ -129,13 +117,13 @@ if ($valido != true) {
                             </div>
                             <div class="row">
                                 <select name="destino[]" id="destino" multiple="multiple" size="8" style="height: 30%; width: 30%">
-                                    <?php
-                                    $cn = new coneccion();
-                                    $sql = "SELECT distinct concat_ws('-_- ', m.semestre, m.materia) as fusion,  m.materia, m.semestre, m.id FROM materias m,historial h WHERE idAcreditacion <=2 and h.calificacion > 70 and m.id NOT IN (SELECT idMateria FROM historial where usuario='$matricula' )LIMIT 0 , 10";
+    <?php
+    $cn = new coneccion();
+    $sql = "SELECT distinct concat_ws('-_- ', m.semestre, m.materia) as fusion,  m.materia, m.semestre, m.id FROM materias m,historial h WHERE idAcreditacion <=2 and h.calificacion > 70 and m.id NOT IN (SELECT idMateria FROM historial where usuario='$matricula' )LIMIT 0 , 10";
 
-                                    $datos = mysql_query($sql, $cn->Conectarse());
-                                    While ($rs = mysql_fetch_array($datos)) {
-                                        ?>
+    $datos = mysql_query($sql, $cn->Conectarse());
+    While ($rs = mysql_fetch_array($datos)) {
+        ?>
                                         <option value="<?php echo utf8_encode($rs["materia"]); ?>" ><?php echo utf8_encode($rs["fusion"]); ?></option>
                                         <?php
                                     }
@@ -158,28 +146,28 @@ if ($valido != true) {
                             <input type="button" class="quitar der btn btn-success" value="Agregar a la lista">
                             <input type="button" class="pasar izq btn btn-danger" value="Quitar de la lista">
                         </div>
-                        <?php
-                        echo $ciclo;
-                        $cn = new coneccion();
-                        $sql = " SELECT p.idMateria, count(p.idMateria) as prr, m.materia \n"
-                                . "FROM precarga p, materias m \n"
-                                . "where p.idMateria = m.id\n"
-                                . "group by p.idMateria \n"
-                                . " LIMIT 0, 30 ";
-                        $datos = mysql_query($sql, $cn->Conectarse());
-                        ?><table BORDER=1>
+    <?php
+    echo $ciclo;
+    $cn = new coneccion();
+    $sql = " SELECT p.idMateria, count(p.idMateria) as prr, m.materia \n"
+            . "FROM precarga p, materias m \n"
+            . "where p.idMateria = m.id\n"
+            . "group by p.idMateria \n"
+            . " LIMIT 0, 30 ";
+    $datos = mysql_query($sql, $cn->Conectarse());
+    ?><table BORDER=1>
                             <th> materia </th><th> Alumnos Preinscritos</th>
-                            <?php
-                            While ($rs = mysql_fetch_array($datos)) {
-                                ?>
-                                <tr> <td><?php echo utf8_encode($rs["materia"]); ?></td> <td><?php echo utf8_encode($rs["prr"]); ?></td> 
-                                    <?php
-                                }
-                                ?></tr>
-                        </table>
                         <?php
-                        $cn->cerrarBd();
-                        ?>
+                        While ($rs = mysql_fetch_array($datos)) {
+                            ?>
+                                <tr> <td><?php echo utf8_encode($rs["materia"]); ?></td> <td><?php echo utf8_encode($rs["prr"]); ?></td> 
+                                <?php
+                            }
+                            ?></tr>
+                        </table>
+                                <?php
+                                $cn->cerrarBd();
+                                ?>
                     </div>
                     <input id="botonazo" class="btn btn-primary" type="button" title="" value="Guardar materias" >
                 </div>
