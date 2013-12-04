@@ -8,11 +8,6 @@
         <script type="text/javascript" src="webcam.js"></script>
         <script src="validCampoFranz.js"></script>
         <script language="JavaScript">
-            webcam.set_api_url('ejecutafoto.php'); //PHP adonde va a recibir la imagen y la va a guardar en el servidor
-            webcam.set_quality(90); // calidad de la imagen
-            webcam.set_shutter_sound(true); // Sonido de flash
-        </script>
-        <script language="JavaScript">
             $(document).ready(function() {
                 $("#oculta").hide();
                 $("#cancelar").click(function() {
