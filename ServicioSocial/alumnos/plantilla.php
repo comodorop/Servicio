@@ -45,6 +45,8 @@
                                     <li class="divider-vertical"></li>
                                     <li><a href="perfil.php">Editar perfil</a></li>
                                     <li class="divider-vertical"></li>
+                                    <li><a href="organigrama/Dinamicamente.php">Historial</a></li>
+                                    <li class="divider-vertical"></li>
                                     <li><a href="mostrarCalificaciones.php">Calificaciones</a> </li>
                                     <li class="divider-vertical"></li>
                                     <li><a href="cargaArchivos.php">Creditos Extra</a> </li>

@@ -152,4 +152,22 @@ class DaoPablo {
         mysql_query($sql, $cn->Conectarse());
     }
 
+    function guardarMaestro($maestro, $usuario) {
+        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $sql = "INSERT INTO maestros(maestro, usuario) VALUES('$maestro', '$usuario')";
+        mysql_query($sql, $cn->Conectarse());
+        $cn->cerrarBd();
+    }
+
+    function guardarUsuario($usuario, $pass) {
+        include '../Utilerias/Utilerias.php';
+//        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $utilerias = new Utilerias();
+        $contra = $utilerias->genera_md5($pass);
+        $sql = "INSERT INTO usuarios(usuario, pass, tipo) VALUES('$usuario', '$contra', '4')";
+        mysql_query($sql, $cn->Conectarse());
+    }
+
 }

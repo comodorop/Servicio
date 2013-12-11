@@ -4,8 +4,6 @@ include './plantillaEncabezado.php';
 include './ConsultasOrganigrama.php';
 ?>
 <!DOCTYPE html>
-
-
 <html>
     <head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <!--<link rel="stylesheet" href="example/css/bootstrap.min.css"/>-->
@@ -61,7 +59,7 @@ include './ConsultasOrganigrama.php';
                                     for ($x = 0; $x < 6; $x++) {
                                         ?>
                                         <li >
-                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores[$x]; ?>">
+                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores[$x]; ?>">
                                                 <?php
                                                 echo "<strong style='color: black'>" . $materias[$x] . "</strong>";
                                                 echo"<br>";
@@ -77,7 +75,7 @@ include './ConsultasOrganigrama.php';
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores[$x]; ?>">
+                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores[$x]; ?>">
                                                         <?php
                                                         echo "<strong style='color: black'>" . $materias[$x] . "</strong>";
                                                         echo"<br>";
@@ -93,7 +91,7 @@ include './ConsultasOrganigrama.php';
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores[$x]; ?>">
+                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores[$x]; ?>">
                                                                 <?php
                                                                 echo "<strong style='color: black'>" . $materias[$x] . "</strong>";
                                                                 echo"<br>";
@@ -109,7 +107,7 @@ include './ConsultasOrganigrama.php';
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores[$x]; ?>">
+                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores[$x]; ?>">
                                                                         <?php
                                                                         echo "<strong style='color: black'>" . $materias[$x] . "</strong>";
                                                                         echo"<br>";
@@ -125,7 +123,7 @@ include './ConsultasOrganigrama.php';
                                                                     </div>
                                                                     <ul>
                                                                         <li>
-                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores[$x]; ?>">
+                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores[$x]; ?>">
                                                                                 <?php
                                                                                 echo "<strong style='color: black'>" . $materias[$x] . "</strong>";
                                                                                 echo"<br>";
@@ -141,7 +139,7 @@ include './ConsultasOrganigrama.php';
                                                                             </div>
                                                                             <ul>
                                                                                 <li>
-                                                                                    <div style=" height:90px; background-color: <?php echo $materiasColores[$x]; ?>">
+                                                                                    <div style=" height:95px; background-color: <?php echo $materiasColores[$x]; ?>">
                                                                                         <?php
                                                                                         echo "<strong style='color: black'>" . $materias[$x] . "</strong>";
                                                                                         echo"<br>";
@@ -175,7 +173,7 @@ include './ConsultasOrganigrama.php';
                                     for ($x = 0; $x < 7; $x++) {
                                         ?>
                                         <li >
-                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores2[$x]; ?>">
+                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores2[$x]; ?>">
                                                 <?php
                                                 echo "<strong style='color: black'>" . $materias2[$x] . "</strong>";
                                                 echo"<br>";
@@ -191,7 +189,7 @@ include './ConsultasOrganigrama.php';
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores2[$x]; ?>">
+                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores2[$x]; ?>">
                                                         <?php
                                                         echo "<strong style='color: black'>" . $materias2[$x] . "</strong>";
                                                         echo"<br>";
@@ -207,7 +205,7 @@ include './ConsultasOrganigrama.php';
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores2[$x]; ?>">
+                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores2[$x]; ?>">
                                                                 <?php
                                                                 echo "<strong style='color: black'>" . $materias2[$x] . "</strong>";
                                                                 echo"<br>";
@@ -223,7 +221,7 @@ include './ConsultasOrganigrama.php';
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores2[$x]; ?>">
+                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores2[$x]; ?>">
                                                                         <?php
                                                                         echo "<strong style='color: black'>" . $materias2[$x] . "</strong>";
                                                                         echo"<br>";
@@ -239,7 +237,7 @@ include './ConsultasOrganigrama.php';
                                                                     </div>
                                                                     <ul>
                                                                         <li>
-                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores2[$x]; ?>">
+                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores2[$x]; ?>">
                                                                                 <?php
                                                                                 echo "<strong style='color: black'>" . $materias2[$x] . "</strong>";
                                                                                 echo"<br>";
@@ -255,7 +253,7 @@ include './ConsultasOrganigrama.php';
                                                                             </div>
                                                                             <ul>
                                                                                 <li>
-                                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores2[$x]; ?>">
+                                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores2[$x]; ?>">
                                                                                         <?php
                                                                                         echo "<strong style='color: black'>" . $materias2[$x] . "</strong>";
                                                                                         echo"<br>";
@@ -271,7 +269,7 @@ include './ConsultasOrganigrama.php';
                                                                                     </div>
                                                                                     <ul>
                                                                                         <li>
-                                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores2[$x]; ?>">
+                                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores2[$x]; ?>">
                                                                                                 <?php
                                                                                                 echo "<strong style='color: black'>" . $materias2[$x] . "</strong>";
                                                                                                 echo"<br>";
@@ -309,7 +307,7 @@ include './ConsultasOrganigrama.php';
                                     for ($x = 0; $x < 6; $x++) {
                                         ?>
                                         <li >
-                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores3[$x]; ?>">
+                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores3[$x]; ?>">
                                                 <?php
                                                 echo "<strong style='color: black'>" . $materias3[$x] . "</strong>";
                                                 echo"<br>";
@@ -324,7 +322,7 @@ include './ConsultasOrganigrama.php';
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores3[$x]; ?>">
+                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores3[$x]; ?>">
                                                         <?php
                                                         echo "<strong style='color: black'>" . $materias3[$x] . "</strong>";
                                                         echo"<br>";
@@ -339,7 +337,7 @@ include './ConsultasOrganigrama.php';
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores3[$x]; ?>">
+                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores3[$x]; ?>">
                                                                 <?php
                                                                 echo "<strong style='color: black'>" . $materias3[$x] . "</strong>";
                                                                 echo"<br>";
@@ -354,7 +352,7 @@ include './ConsultasOrganigrama.php';
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores3[$x]; ?>">
+                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores3[$x]; ?>">
                                                                         <?php
                                                                         echo "<strong style='color: black'>" . $materias3[$x] . "</strong>";
                                                                         echo"<br>";
@@ -369,7 +367,7 @@ include './ConsultasOrganigrama.php';
                                                                     </div>
                                                                     <ul>
                                                                         <li>
-                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores3[$x]; ?>">
+                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores3[$x]; ?>">
                                                                                 <?php
                                                                                 echo "<strong style='color: black'>" . $materias3[$x] . "</strong>";
                                                                                 echo"<br>";
@@ -384,7 +382,7 @@ include './ConsultasOrganigrama.php';
                                                                             </div>
                                                                             <ul>
                                                                                 <li>
-                                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores3[$x]; ?>">
+                                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores3[$x]; ?>">
                                                                                         <?php
                                                                                         echo "<strong style='color: black'>" . $materias3[$x] . "</strong>";
                                                                                         echo"<br>";
@@ -419,7 +417,7 @@ include './ConsultasOrganigrama.php';
                                     for ($x = 0; $x < 7; $x++) {
                                         ?>
                                         <li >
-                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores4[$x]; ?>">
+                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores4[$x]; ?>">
                                                 <?php
                                                 echo "<strong style='color: black'>" . $materias4[$x] . "</strong>";
                                                 echo"<br>";
@@ -434,7 +432,7 @@ include './ConsultasOrganigrama.php';
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores4[$x]; ?>">
+                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores4[$x]; ?>">
                                                         <?php
                                                         echo "<strong style='color: black'>" . $materias4[$x] . "</strong>";
                                                         echo"<br>";
@@ -449,7 +447,7 @@ include './ConsultasOrganigrama.php';
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores4[$x]; ?>">
+                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores4[$x]; ?>">
                                                                 <?php
                                                                 echo "<strong style='color: black'>" . $materias4[$x] . "</strong>";
                                                                 echo"<br>";
@@ -464,7 +462,7 @@ include './ConsultasOrganigrama.php';
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores4[$x]; ?>">
+                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores4[$x]; ?>">
                                                                         <?php
                                                                         echo "<strong style='color: black'>" . $materias4[$x] . "</strong>";
                                                                         echo"<br>";
@@ -479,7 +477,7 @@ include './ConsultasOrganigrama.php';
                                                                     </div>
                                                                     <ul>
                                                                         <li>
-                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores4[$x]; ?>">
+                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores4[$x]; ?>">
                                                                                 <?php
                                                                                 echo "<strong style='color: black'>" . $materias4[$x] . "</strong>";
                                                                                 echo"<br>";
@@ -494,7 +492,7 @@ include './ConsultasOrganigrama.php';
                                                                             </div>
                                                                             <ul>
                                                                                 <li>
-                                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores4[$x]; ?>">
+                                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores4[$x]; ?>">
                                                                                         <?php
                                                                                         echo "<strong style='color: black'>" . $materias4[$x] . "</strong>";
                                                                                         echo"<br>";
@@ -510,7 +508,7 @@ include './ConsultasOrganigrama.php';
 
                                                                                     <ul>
                                                                                         <li>
-                                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores4[$x]; ?>">
+                                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores4[$x]; ?>">
                                                                                                 <?php
                                                                                                 echo "<strong style='color: black'>" . $materias4[$x] . "</strong>";
                                                                                                 echo"<br>";
@@ -547,7 +545,7 @@ include './ConsultasOrganigrama.php';
                                     for ($x = 0; $x < 7; $x++) {
                                         ?>
                                         <li >
-                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores5[$x]; ?>">
+                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores5[$x]; ?>">
                                                 <?php
                                                 echo "<strong style='color: black'>" . $materias5[$x] . "</strong>";
                                                 echo"<br>";
@@ -562,7 +560,7 @@ include './ConsultasOrganigrama.php';
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores5[$x]; ?>">
+                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores5[$x]; ?>">
                                                         <?php
                                                         echo "<strong style='color: black'>" . $materias5[$x] . "</strong>";
                                                         echo"<br>";
@@ -577,7 +575,7 @@ include './ConsultasOrganigrama.php';
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores5[$x]; ?>">
+                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores5[$x]; ?>">
                                                                 <?php
                                                                 echo "<strong style='color: black'>" . $materias5[$x] . "</strong>";
                                                                 echo"<br>";
@@ -592,7 +590,7 @@ include './ConsultasOrganigrama.php';
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores5[$x]; ?>">
+                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores5[$x]; ?>">
                                                                         <?php
                                                                         echo "<strong style='color: black'>" . $materias5[$x] . "</strong>";
                                                                         echo"<br>";
@@ -607,7 +605,7 @@ include './ConsultasOrganigrama.php';
                                                                     </div>
                                                                     <ul>
                                                                         <li>
-                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores5[$x]; ?>">
+                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores5[$x]; ?>">
                                                                                 <?php
                                                                                 echo "<strong style='color: black'>" . $materias5[$x] . "</strong>";
                                                                                 echo"<br>";
@@ -622,7 +620,7 @@ include './ConsultasOrganigrama.php';
                                                                             </div>
                                                                             <ul>
                                                                                 <li>
-                                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores5[$x]; ?>">
+                                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores5[$x]; ?>">
                                                                                         <?php
                                                                                         echo "<strong style='color: black'>" . $materias5[$x] . "</strong>";
                                                                                         echo"<br>";
@@ -637,7 +635,7 @@ include './ConsultasOrganigrama.php';
                                                                                     </div>
                                                                                     <ul>
                                                                                         <li>
-                                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores5[$x]; ?>">
+                                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores5[$x]; ?>">
                                                                                                 <?php
                                                                                                 echo "<strong style='color: black'>" . $materias5[$x] . "</strong>";
                                                                                                 echo"<br>";
@@ -674,7 +672,7 @@ include './ConsultasOrganigrama.php';
                                     for ($x = 0; $x < 6; $x++) {
                                         ?>
                                         <li >
-                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores6[$x]; ?>">
+                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores6[$x]; ?>">
                                                 <?php
                                                 echo "<strong style='color: black'>" . $materias6[$x] . "</strong>";
                                                 echo"<br>";
@@ -690,7 +688,7 @@ include './ConsultasOrganigrama.php';
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores6[$x]; ?>">
+                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores6[$x]; ?>">
                                                         <?php
                                                         echo "<strong style='color: black'>" . $materias6[$x] . "</strong>";
                                                         echo"<br>";
@@ -705,7 +703,7 @@ include './ConsultasOrganigrama.php';
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores6[$x]; ?>">
+                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores6[$x]; ?>">
                                                                 <?php
                                                                 echo "<strong style='color: black'>" . $materias6[$x] . "</strong>";
                                                                 echo"<br>";
@@ -720,7 +718,7 @@ include './ConsultasOrganigrama.php';
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores6[$x]; ?>">
+                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores6[$x]; ?>">
                                                                         <?php
                                                                         echo "<strong style='color: black'>" . $materias6[$x] . "</strong>";
                                                                         echo"<br>";
@@ -735,7 +733,7 @@ include './ConsultasOrganigrama.php';
                                                                     </div>
                                                                     <ul>
                                                                         <li>
-                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores6[$x]; ?>">
+                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores6[$x]; ?>">
                                                                                 <?php
                                                                                 echo "<strong style='color: black'>" . $materias6[$x] . "</strong>";
                                                                                 echo"<br>";
@@ -750,7 +748,7 @@ include './ConsultasOrganigrama.php';
                                                                             </div>
                                                                             <ul>
                                                                                 <li>
-                                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores6[$x]; ?>">
+                                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores6[$x]; ?>">
                                                                                         <?php
                                                                                         echo "<strong style='color: black'>" . $materias6[$x] . "</strong>";
                                                                                         echo"<br>";
@@ -785,7 +783,7 @@ include './ConsultasOrganigrama.php';
                                     for ($x = 0; $x < 8; $x++) {
                                         ?>
                                         <li >
-                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores7[$x]; ?>">
+                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores7[$x]; ?>">
                                                 <?php
                                                 echo "<strong style='color: black'>" . $materias7[$x] . "</strong>";
                                                 echo"<br>";
@@ -800,7 +798,7 @@ include './ConsultasOrganigrama.php';
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores7[$x]; ?>">
+                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores7[$x]; ?>">
                                                         <?php
                                                         echo "<strong style='color: black'>" . $materias7[$x] . "</strong>";
                                                         echo"<br>";
@@ -815,7 +813,7 @@ include './ConsultasOrganigrama.php';
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores7[$x]; ?>">
+                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores7[$x]; ?>">
                                                                 <?php
                                                                 echo "<strong style='color: black'>" . $materias7[$x] . "</strong>";
                                                                 echo"<br>";
@@ -830,7 +828,7 @@ include './ConsultasOrganigrama.php';
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores7[$x]; ?>">
+                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores7[$x]; ?>">
                                                                         <?php
                                                                         echo "<strong style='color: black'>" . $materias7[$x] . "</strong>";
                                                                         echo"<br>";
@@ -845,7 +843,7 @@ include './ConsultasOrganigrama.php';
                                                                     </div>
                                                                     <ul>
                                                                         <li>
-                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores7[$x]; ?>">
+                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores7[$x]; ?>">
                                                                                 <?php
                                                                                 echo "<strong style='color: black'>" . $materias7[$x] . "</strong>";
                                                                                 echo"<br>";
@@ -860,7 +858,7 @@ include './ConsultasOrganigrama.php';
                                                                             </div>
                                                                             <ul>
                                                                                 <li>
-                                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores7[$x]; ?>">
+                                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores7[$x]; ?>">
                                                                                         <?php
                                                                                         echo "<strong style='color: black'>" . $materias7[$x] . "</strong>";
                                                                                         echo"<br>";
@@ -875,7 +873,7 @@ include './ConsultasOrganigrama.php';
                                                                                     </div>
                                                                                     <ul>
                                                                                         <li>
-                                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores7[$x]; ?>">
+                                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores7[$x]; ?>">
                                                                                                 <?php
                                                                                                 echo "<strong style='color: black'>" . $materias7[$x] . "</strong>";
                                                                                                 echo"<br>";
@@ -890,7 +888,7 @@ include './ConsultasOrganigrama.php';
                                                                                             </div>
                                                                                             <ul>
                                                                                                 <li>
-                                                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores7[$x]; ?>">
+                                                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores7[$x]; ?>">
                                                                                                         <?php
                                                                                                         echo "<strong style='color: black'>" . $materias7[$x] . "</strong>";
                                                                                                         echo"<br>";
@@ -929,7 +927,7 @@ include './ConsultasOrganigrama.php';
                                     for ($x = 0; $x < 6; $x++) {
                                         ?>
                                         <li >
-                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores78[$x]; ?>">
+                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores78[$x]; ?>">
                                                 <?php
                                                 echo "<strong style='color: black'>" . $materias8[$x] . "</strong>";
                                                 echo"<br>";
@@ -943,7 +941,7 @@ include './ConsultasOrganigrama.php';
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores8[$x]; ?>">
+                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores8[$x]; ?>">
                                                         <?php
                                                         echo "<strong style='color: black'>" . $materias8[$x] . "</strong>";
                                                         echo"<br>";
@@ -958,7 +956,7 @@ include './ConsultasOrganigrama.php';
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores8[$x]; ?>">
+                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores8[$x]; ?>">
                                                                 <?php
                                                                 echo "<strong style='color: black'>" . $materias8[$x] . "</strong>";
                                                                 echo"<br>";
@@ -972,7 +970,7 @@ include './ConsultasOrganigrama.php';
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores8[$x]; ?>">
+                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores8[$x]; ?>">
                                                                         <?php
                                                                         echo "<strong style='color: black'>" . $materias8[$x] . "</strong>";
                                                                         echo"<br>";
@@ -987,7 +985,7 @@ include './ConsultasOrganigrama.php';
                                                                     </div>
                                                                     <ul>
                                                                         <li>
-                                                                            <div style=" height: 90px ; background-color: <?php echo $materiasColores8[$x]; ?>">
+                                                                            <div style=" height: 95px ; background-color: <?php echo $materiasColores8[$x]; ?>">
                                                                                 <?php
                                                                                 echo "<strong style='color: black'>" . $materias8[$x] . "</strong>";
                                                                                 echo"<br>";
@@ -1002,7 +1000,7 @@ include './ConsultasOrganigrama.php';
                                                                             </div>
                                                                             <ul>
                                                                                 <li>
-                                                                                    <div style=" height: 90px ; background-color: <?php echo $materiasColores8[$x]; ?>">
+                                                                                    <div style=" height: 95px ; background-color: <?php echo $materiasColores8[$x]; ?>">
                                                                                         <?php
                                                                                         echo "<strong style='color: black'>" . $materias8[$x] . "</strong>";
                                                                                         echo"<br>";

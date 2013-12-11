@@ -50,7 +50,7 @@
                                         <ul class="dropdown-menu">
                                             <li><a href="inicializarCurso.php">Iniciar Curso</a></li>
                                             <li><a href="CreaGrupo.php">Crear grupo</a></li>
-                                            <li><a href="#">Agregar alumnos</a></li>
+                                            <li><a href="ServicioSocialAltas.php">Agregar alumnos</a></li>
                                         </ul>
                                     </li>                       
                                     <li class="divider-vertical"></li>
@@ -59,7 +59,6 @@
                                     <li class="dropdown">
                                         <a href="" class="dropdown-toggle" data-toggle="dropdown">Eventos<b class="caret"></b></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="ConsultarEventos.php">Consultar Eventos</a> </li>
                                             <li><a href="fecha.php">Inicializar Eventos</a> </li>
                                         </ul>
                                     </li> 
@@ -89,8 +88,8 @@
                                             <li><a href="resultadosEncuestaTutorias.php">Encuestas</a></li>
                                         </ul>
                                     </li> 
-                                    <li class="divider-vertical"></li>
-                                    <li><a href="Estadisticos.php">Estadisticas</a></li>
+<!--                                    <li class="divider-vertical"></li>
+                                    <li><a href="Estadisticos.php">Estadisticas</a></li>-->
                                     <li class="divider-vertical"></li>
                                     <li><a href="cerrarSesion.php">Cerrar Sessión</a> </li>
                                 </ul>

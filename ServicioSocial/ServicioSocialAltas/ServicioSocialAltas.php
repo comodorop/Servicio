@@ -1,21 +1,14 @@
 <?php
+include '../Coordinadora/plantillaEncabezado.php';
 include '../DaoConnection/coneccion.php';
 $coneccion = new coneccion();
 session_start();
 ?>
 <style>
-    #matricula{  
-        text-transform: capitalize;  
-    }  
-    #nombre{  
-        text-transform: capitalize;  
-    }  
-    #apellidoM{  
-        text-transform: capitalize;  
-    }  
-    #apellidoP{  
-        text-transform: capitalize;  
-    }  
+    .stlconten{
+        background-color: white;
+        margin-top: -20px
+    }
 </style>
 
 <html>
@@ -126,7 +119,7 @@ session_start();
                     var apellidoP = $('#apellidoP').val();
                     var apellidoM = $('#apellidoM').val();
 
-                    if (m == "" || acred == 0 || Tcurso == 0 || cursando == 0 || ingr == 0 || curso==0 || anio==0) {
+                    if (m == "" || acred == 0 || Tcurso == 0 || cursando == 0 || ingr == 0 || curso == 0 || anio == 0) {
                         $('#fracaso').slideDown("slow");
                         $('#fracaso').delay("1500");
                         $('#fracaso').slideUp("slow");
@@ -146,7 +139,7 @@ session_start();
                                     $('#malcalif').slideUp("slow");
                                 }
                                 else {
-                                    var informacion = 'matricula=' + m + '&especialidad=' + espe + '&materia=' + mat + '&acreditacion=' + acred + '&calificacion=' + calif + '&tipoCurso=' + Tcurso + '&cursando=' + cursando + '&ingreso=' + ingr + '&materiaComunes=' + materias+'&a='+anio+ '&c='+curso;
+                                    var informacion = 'matricula=' + m + '&especialidad=' + espe + '&materia=' + mat + '&acreditacion=' + acred + '&calificacion=' + calif + '&tipoCurso=' + Tcurso + '&cursando=' + cursando + '&ingreso=' + ingr + '&materiaComunes=' + materias + '&a=' + anio + '&c=' + curso;
                                     $.get('guardarMaterias.php', informacion, function() {
                                         $('#exito').show("slow");
                                         $('#exito').delay("1500");
@@ -186,15 +179,11 @@ session_start();
         </script>
     </head> 
 
-    <body style="background-color:  #e5e5e5">
+    <body>
     <center>
         <div style="width: 960px; background-color: white;">
             <br>
             <fieldset style="border-radius: 10px">
-
-
-
-
                 <center>
                     <div id="mal" class="alert alert-error">
                         <strong>Llene todos los campos Correspondientes</strong>
@@ -353,3 +342,6 @@ session_start();
     </center>
 </body> 
 </html>
+<?php
+include '../Coordinadora/plantillaFooter.php';
+?>

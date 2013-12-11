@@ -35,7 +35,8 @@
     background-color 		: #35363B;
     display               : inline-block;
     width                 : 120px;
-    height                : 95px;//se pone la longitud del cuadrado del arbol
+    height                : 95px;
+/*    //se pone la longitud del cuadrado del arbol*/
     z-index 				: 10;
     margin               : 0 2px;
 }

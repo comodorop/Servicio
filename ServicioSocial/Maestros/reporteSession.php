@@ -33,12 +33,28 @@ include './plantillaEncabezado.php';
                             '&tareasAsignadas=' + $('#tareasAsignadas').val() +
                             '&numeroSession=' + $('#numeroSession').val();
                     $.get('guardarSession.php', datos, function() {
+                        $("#fecha").val('');
+                        $("#descripcion").val('');
+                        $("#objetivos").val('');
+                        $("#observaciones").val('');
+                        $("#tareasAsignadas").val('');
+
                         alertify.success("Exito! Datos insertados Satisfactoriamente");
                     });
                 });
                 $('#usuarios').change(function() {
-                    $var = $('#usuarios').val();
+                    var usuario = $('#usuarios').val();
+                    $("#tareasAnteriores").slideUp('slow');
+                    $("#tareasAnteriores").load('traerUltimaActividad.php?id=' + usuario);
 
+                });
+                $("#cancelar").click(function() {
+                    $("#tareasAnteriores").slideUp('slow');
+                    $("#fecha").val('');
+                    $("#descripcion").val('');
+                    $("#objetivos").val('');
+                    $("#observaciones").val('');
+                    $("#tareasAsignadas").val('');
                 });
             });
         </script>
@@ -49,9 +65,6 @@ include './plantillaEncabezado.php';
                 <h3>Session de Tutorias</h3>
                 <div class="well well-sm pagination-centered">
                     <?php $cn = new coneccion(); ?>
-                    <div>
-                        <div style="float: right ; margin-right: 40px"><strong>Bienvenido: <?php echo $nombreMaestro; ?></strong></div>
-                    </div>
                     <br>
                     <input style="height: 30px; width: 220px" type="date" id="fecha"/>
                     <br>
@@ -71,7 +84,10 @@ include './plantillaEncabezado.php';
                     <br>
                     <div data-spy="scroll">
                         <strong>Tareas Anteriores:</strong>
-                        <div id="tareasAnteriores"></div>
+                        <div class="well well-sm" id="tareasAnteriores">
+
+
+                        </div>
                         <center>
                             <table>
                                 <tr>
@@ -95,8 +111,9 @@ include './plantillaEncabezado.php';
                                     </td>
                                 </tr>
                             </table>
-                            <input type="submit" class="btn btn-danger" value="Cancelar"/>
-                            <input type="submit" id="guardar" class="btn btn-primary" value="Guardar"/>
+                            <input type="submit" id="guardar" class="btn btn-success" value="Guardar"/>
+                            <input type="submit" class="btn btn-danger" id="cancelar" value="Cancelar"/>
+
                             <br>
                         </center>
                     </div>

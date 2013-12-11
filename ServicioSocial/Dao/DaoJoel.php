@@ -34,10 +34,12 @@ class DaoJoel {
             $_SESSION["tipo"] = $tipo;
         }
         if ($tipo == 2) {
-            $sql = "SELECT * FROM usuarios  , maestros    WHERE usuarios.usuario='" . $u->getUsuario() . "' AND usuarios.pass='" . $u->getPass() . "' and usuarios.usuario = maestros.usuario";
+            $sql = "SELECT * FROM usuarios  , maestros
+                WHERE usuarios.usuario='" . $u->getUsuario() . "' AND usuarios.pass='" . $u->getPass() . "' and usuarios.usuario = maestros.usuario";
             $d = mysql_query($sql, $cn->Conectarse());
             while ($rs = mysql_fetch_array($d)) {
                 $_SESSION["idMaestroSession"] = $rs[4];
+                
             }
         }
         if ($columnas > 0) {

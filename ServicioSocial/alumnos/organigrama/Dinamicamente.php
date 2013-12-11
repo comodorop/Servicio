@@ -35,7 +35,7 @@ include './ConsultasOrganigrama.php';
                 $busqueda = $_GET["usuario"];
                 $sqlPromedio = "select round(avg(calificacion),2)as promedio
                                 from historial
-                                where usuario = '$busqueda'
+                                where usuario = '".$_SESSION["UsuarioAlumno"]."'
                                 group by ingresoCursado";
                 $rs = mysql_query($sqlPromedio, $cn->conectarse());
                 $c = 0;
@@ -55,7 +55,7 @@ include './ConsultasOrganigrama.php';
                             <li id="idjOrgChart">
                                 Reticula del Alumno:
                                 <br>
-                                <?php echo $busqueda; ?>
+                                <?php echo $_SESSION["UsuarioAlumno"]; ?>
                                 <ul>
                                     <?php
                                     for ($x = 0; $x < 6; $x++) {
