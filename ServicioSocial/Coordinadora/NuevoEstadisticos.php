@@ -109,8 +109,6 @@ $coneccion = new coneccion();
                         $('#EnviarDatos').show('slow');
                     }
                 })
-                
-              //es de especifico 
                 $('#SacaMaestros').change(function() {
                     SacaMaestros = $('#SacaMaestros').val();
                     $('#EnviarDatos').show('slow');
@@ -153,8 +151,6 @@ $coneccion = new coneccion();
                     unidad = $('#SelectUnidad').val();
                     $('#EnviarDatos').show('slow');
                 });
-                
-                //trabajando los datos segun informacion
                 $('#EnviarDatos').click(function() {
                     if (bandera == "1") {
                         $("#Graficar").load('graficas.php?materia=' + busqueda + '&Maestro=' + maestro + '&Curso=' + Curso + '&TipoCurso=' + TipoCurso + '&Unidad=' + unidad + '&bandera=' + bandera + '&EscolarCurso=' + EscolarCurso);
