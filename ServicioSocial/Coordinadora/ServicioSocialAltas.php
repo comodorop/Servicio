@@ -21,7 +21,6 @@ session_start();
                 var keynum = window.event ? window.event.keyCode : e.which;
                 if ((keynum == 8) || (keynum == 46))
                     return true;
-
                 return /\d/.test(String.fromCharCode(keynum));
             }
             function val(e) {
@@ -291,7 +290,6 @@ session_start();
                         }
                         ?>
                     </select>
-
                     <input id="calificacion" onkeypress="return justNumbers(event);"  type="text" style="width: 250px" placeholder="Calificacion" name="calificacion"/>
                     <br>
                     <select style="width: 100px" id="anio">

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '../DaoConnection/coneccion.php';
 include '../clases/maestros.php';
 include '../clases/alumnosinscritos.php';
@@ -97,8 +97,7 @@ class daoServicio {
         $c->cerrarBd();
     }
 
-   
-    function guardarEncuesta(tutorias $t, $usuario, $control, $tipo, $ciclo, $anio ) {
+    function guardarEncuesta(tutorias $t, $usuario, $control, $tipo, $ciclo, $anio) {
         $c = new coneccion();
         $sqlguardar = "INSERT INTO TUTORIAS (Matricula, lugarViviendo, estCivilPadres, escPadre, escMadre, ingresosMenFam, NumHermanos, PerPlaticar, relacionPadre, relacionMadre, fuenteIngreso, habMaterias, estudiosExtTec, cualExtTec, pasatiempos, trabajas, dondeTrabajas, ocupacionTrab, porqTrab, ingresastRazTec, ingresastRazCar, alergias, cualAlergia, cronica, cronicaCual, atencionPsi, cualAtencionPsi, atencionMedica, bebidasAlc, fumador, problemLegal, motivo, deporte, cualDep, frecuenciaDep, realizado, lugarOcupas, especialidad, promedioFinalPrepa, hereditaria, hereditariaQuien, enfermedadMental, enfermedadMentalCual, escuela1, estado1, grado1, escuela2, estado2, grado2, escuela3, estado3, grado3) VALUES('" . $t->getUsuario() . "','" . $t->getLugarViviendo() . "','" . $t->getEstCivilPadre() . "',
             '" . $t->getEscPadre() . "','" . $t->getEscMadre() . "','" . $t->getIngresosMenFam() . "','" . $t->getNumHermanos() . "','" . $t->getPerPlaticar() . "','" . $t->getRelacionPadre() . "','" . $t->getRelacionMadre() . "','" . $t->getFuenteIngreso() . "','" . $t->getHabMaterias() . "','" . $t->getEstudiosExtTec() . "','" . $t->getCualExtTec() . "','" . $t->getPasatiempos() . "','" . $t->getTrabajas() . "','" . $t->getDondeTrabajas() . "','" . $t->getOcupacionTrab() . "','" . $t->getPorqTrab() . "','" . $t->getIngresastRazTec() . "','" . $t->getIngresastRazCar() . "','" . $t->getAlergias() . "','" . $t->getCualAlergia() . "','" . $t->getCronica() . "','" . $t->getCronicaCual() . "','" . $t->getAtencionPsi() . "','" . $t->getCualAtencionPsi() . "','" . $t->getAtencionMedica() . "','" . $t->getBebidasAlc() . "','" . $t->getFumador() . "','" . $t->getProblemLegal() . "','" . $t->getMotivo() . "','" . $t->getDeporte() . "','" . $t->getCualDep() . "','" . $t->getFrecuenciaDept() . "','" . $t->getRealizado() . "','" . $t->getLugarOcupas() . "','" . $t->getEspecialidad() . "','" . $t->getPromedio() . "','" . $t->getHereditaria() . "','" . $t->getHereditariaQuien() . "','" . $t->getMental() . "','" . $t->getMentalCual() . "','" . $t->getEscuela1() . "','" . $t->getEstado1() . "','" . $t->getGrado1() . "','" . $t->getEscuela2() . "','" . $t->getEstado2() . "','" . $t->getGrado2() . "','" . $t->getEscuela3() . "','" . $t->getEstado3() . "','" . $t->getGrado3() . "')";
@@ -258,25 +257,28 @@ class daoServicio {
         $cn->cerrarBd();
     }
 
-    function  dameAlumnos($grupo, $usuario, $idMateria) {
+    function dameAlumnos($grupo, $usuario, $idMateria) {
         $cn = new coneccion();
-
-        $sql = "select * 
-                from alumnosinscritos al, gruposalumnos ga, maestros m, datospersonales dp
-                where al.idGrupo = ga.idGrupo
-                and al.idMateria ='$idMateria'
-                and ga.idMaestro = m.id
-                and m.usuario = '$usuario'
-                and ga.nombreGrupo='$grupo'
-                and al.usuario = dp.usuario";
+        $sql ="select Nombre, apellidoPaterno, apellidoMaterno, dp.usuario, idMaestro from gruposalumnos gp
+               inner join materias m
+               on m.id = gp.idMateria
+               inner join maestros ma 
+               on ma.id = gp.idMaestro
+               inner join alumnosinscritos al
+               on al.idMateria= $idMateria
+               inner join datospersonales dp
+               on dp.usuario = al.usuario
+               where ma.usuario = '$usuario'
+               and gp.idMateria = $idMateria
+               and nombreGrupo ='$grupo';";
         $dtos = mysql_query($sql, $cn->Conectarse());
         $cont = 0;
-
         while ($rs = mysql_fetch_array($dtos)) {
             $alumnos = new alumnosinscritos();
-            $alumnos->setUsuario($rs[16]);
-            $alumnos->setNombre($rs[17] . " " . $rs[18] . " " . $rs[19]);
+            $alumnos->setUsuario($rs[3]);
+            $alumnos->setNombre($rs[0] . " " . $rs[1] . " " . $rs[2]);
             $datos[$cont] = $alumnos;
+            $_SESSION["idMaestro"]= $rs[4];
             $cont++;
         }
         return $datos;

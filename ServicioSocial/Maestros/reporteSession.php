@@ -38,7 +38,6 @@ include './plantillaEncabezado.php';
                         $("#objetivos").val('');
                         $("#observaciones").val('');
                         $("#tareasAsignadas").val('');
-
                         alertify.success("Exito! Datos insertados Satisfactoriamente");
                     });
                 });
@@ -46,7 +45,6 @@ include './plantillaEncabezado.php';
                     var usuario = $('#usuarios').val();
                     $("#tareasAnteriores").slideUp('slow');
                     $("#tareasAnteriores").load('traerUltimaActividad.php?id=' + usuario);
-
                 });
                 $("#cancelar").click(function() {
                     $("#tareasAnteriores").slideUp('slow');
@@ -85,8 +83,6 @@ include './plantillaEncabezado.php';
                     <div data-spy="scroll">
                         <strong>Tareas Anteriores:</strong>
                         <div class="well well-sm" id="tareasAnteriores">
-
-
                         </div>
                         <center>
                             <table>
@@ -121,6 +117,5 @@ include './plantillaEncabezado.php';
             </div>
         </div>
     </body>
-
 </html>
 <?php include './plantillaFooter.php'; ?>

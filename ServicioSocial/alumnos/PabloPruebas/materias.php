@@ -6,7 +6,7 @@ $cn = new coneccion();
 // here i would like use foreach:
 $sentencias;
 $contador = 0;
-foreach ($data as $d) {
+foreach ($data as $d){
     $sql = "INSERT INTO precarga(usuario, idMateria, fecha) VALUES('12345678','$d', '' )";
     $sentencias[$contador] = $sql;
     echo $d;

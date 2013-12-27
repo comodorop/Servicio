@@ -26,7 +26,22 @@ echo '<br>';
 echo "<font size='5' face='Bookman Old Style'>Actividades Complementarias</font>";
 echo '<br>';
 while ($rsDatos = mysql_fetch_array($datosArchivos)) {
-    echo "<div style='float:left'><font size='4' face='Bookman Old Style'><a href='$rsDatos[2]' target='blank'>Documento</a></font></div>";
+    echo "<div style='float:left' class='form-inline'>
+        <font size='4' face='Bookman Old Style'>
+        <a href='$rsDatos[2]' target='blank'>
+            Documento
+        </a>
+        </font>";
+    if ($rsDatos[4] == 0) {
+        echo 'No autorizado';
+    } else {
+        echo"Autorizado";
+    }
+    echo"&nbsp;&nbsp;";
+    echo"<a onclick='rechazarDocumento(" . $rsDatos["id"] . ");'><i class='icon-remove' title='Rechazar Documento'></i></a>";
+    echo"&nbsp;&nbsp;";
+    echo"<a onclick='autorizarDocumento(" . $rsDatos["id"] . ");'><i class='icon-ok' title='Validar Documento'></i></a>";
+    echo" </div>";
     echo '<br>';
     echo '<br>';
 }

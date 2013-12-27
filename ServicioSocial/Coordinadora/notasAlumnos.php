@@ -16,6 +16,23 @@ include './plantillaEncabezado.php';
             }
         </style>
         <script>
+
+            function autorizarDocumento(id) {
+                var datos = "id=" + id + "&autorizar=1";
+                $.get('autorizar.php', datos, function() {
+                    var informacion = $('#datosBuscar').val();
+                    informacion = quitarEspacion(informacion);
+                    $('#Informacion').load('mostrarInformacion.php?datos=' + informacion);
+                });
+            }
+            function  rechazarDocumento(id) {
+                var datos = "id=" + id + "&autorizar=0";
+                $.get('autorizar.php', datos, function() {
+                    var informacion = $('#datosBuscar').val();
+                    informacion = quitarEspacion(informacion);
+                    $('#Informacion').load('mostrarInformacion.php?datos=' + informacion);
+                });
+            }
             function quitarEspacion(cadena) {
                 var palabra = cadena.replace(/\s/g, "%20");
                 return palabra;
@@ -33,7 +50,6 @@ include './plantillaEncabezado.php';
                     else {
                         $('#Informacion').load('mostrarInformacion.php?datos=' + informacion);
                     }
-
                 });
             });
         </script>
@@ -52,9 +68,7 @@ include './plantillaEncabezado.php';
                     <br>
                     <br>
                 </div>
-
                 <div  class="well well-sm" id="Informacion" style="float: left; width: 400px; margin-left: 40px; ">
-
                 </div>
             </div>
         </div>

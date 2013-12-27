@@ -3,7 +3,7 @@
 session_start();
 include '../DaoConnection/coneccion.php';
 $cn = new coneccion();
-$sql = "SELECT usuario from usuarios WHERE tipo = 3";
+$sql = "SELECT usuario from datosPersonales";
 $datos = mysql_query($sql, $cn->Conectarse());
 echo "<datalist>";
 while ($rs = mysql_fetch_array($datos)) {

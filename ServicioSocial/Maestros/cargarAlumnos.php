@@ -4,15 +4,18 @@ session_start();
 include '../Dao/daoServicio.php';
 $grupo = $_GET["grupo"];
 $idMateria = $_GET["idMateria"];
-$daoServicio = new daoServicio();
 $usuario = $_SESSION["Usuario"];
+$daoServicio = new daoServicio();
 $datos = $daoServicio->dameAlumnos($grupo, $usuario, $idMateria);
-echo "<select id='alumnos'>";
-echo "<option>Seleccione un Usuario</option>";
+$_SESSION["listaAlumnos"] = $datos;
+//echo '<table>';
 foreach ($datos as $alumnos) {
-      echo "<option value=" . $alumnos->getUsuario() . ">" . $alumnos->getNombre() . "</option>";
-//    echo "<option>Hola</option>";
+//    echo '<tr>';
+//    echo "" . $alumnos->getUsuario() . "";
+    echo "" . $alumnos->getNombre() . ":&nbsp;&nbsp;";
+    echo "<input type = 'text' id='calificacion'/>";
+    echo"<br>";
+//    echo '</tr>';
 }
-echo "</select>";
-
+//echo "</table>";
 ?>

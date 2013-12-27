@@ -3,7 +3,7 @@
 class DaoPablo {
 
     function insertarCalifiaciones(CalificacionesActuales $calificaciones) {
-        include '../DaoConnection/coneccion.php';
+//        include '../DaoConnection/coneccion.php';
         $cn = new coneccion();
         $sql = "INSERT INTO calificacionesactual(idAlumno, idMaestro, idMateria, Calificacion, Unidad, CursoEscolar, TipoCurso, anio)
                 VALUES('" . $calificaciones->getUsuario() . "',
@@ -168,6 +168,49 @@ class DaoPablo {
         $contra = $utilerias->genera_md5($pass);
         $sql = "INSERT INTO usuarios(usuario, pass, tipo) VALUES('$usuario', '$contra', '4')";
         mysql_query($sql, $cn->Conectarse());
+    }
+
+    function dameAlumnos($grupo, $usuario, $idMateria) {
+        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $sql = "select Nombre, apellidoPaterno, apellidoMaterno, dp.usuario from gruposalumnos gp
+               inner join materias m
+               on m.id = gp.idMateria
+               inner join maestros ma 
+               on ma.id = gp.idMaestro
+               inner join alumnosinscritos al
+               on al.idMateria= $idMateria
+               inner join datospersonales dp
+               on dp.usuario = al.usuario
+               where ma.usuario = '$usuario'
+               and gp.idMateria = $idMateria
+               and nombreGrupo ='$grupo';";
+        $dtos = mysql_query($sql, $cn->Conectarse());
+        $cont = 0;
+        while ($rs = mysql_fetch_array($dtos)) {
+            $alumnos = new alumnosinscritos();
+            $alumnos->setUsuario($rs[3]);
+            $alumnos->setNombre($rs[0] . " " . $rs[1] . " " . $rs[2]);
+            $datos[$cont] = $alumnos;
+            $cont++;
+        }
+        return $datos;
+    }
+
+    function rechazarDocumento($id, $valor) {
+        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $sql = "UPDATE cargaarchivos set autorizacion=$valor WHERE id ='$id'";
+        mysql_query($sql, $cn->Conectarse());
+        $cn->cerrarBd();
+    }
+
+    function autorizarDocumento($id, $valor) {
+        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $sql = "UPDATE cargaarchivos set autorizacion=$valor WHERE id ='$id'";
+        mysql_query($sql, $cn->Conectarse());
+        $cn->cerrarBd();
     }
 
 }
