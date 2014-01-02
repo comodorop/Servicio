@@ -213,4 +213,26 @@ class DaoPablo {
         $cn->cerrarBd();
     }
 
+    function guardarSeguimientoCurso(seguimientoCurso $seguimiento) {
+        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $sql = "INSERT INTO seguimientoCurso
+            (usuario, anio, curso, matriculaMaestro, pregunta1, pregunta2, pregunta3, pregunta4
+            , pregunta5, pregunta6, pregunta7, pregunta8, pregunta9, pregunta10, pregunta11
+            , pregunta12, pregunta13, pregunta14, pregunta15, pregunta16, pregunta17, pregunta18
+            , pregunta19, pregunta20, pregunta21, pregunta22, pregunta23, pregunta24, pregunta25)
+            VALUES('" . $seguimiento->getUsuario() . "', '" . $seguimiento->getAnio() . "', '" . $seguimiento->getCurso() . "',
+                '" . $seguimiento->getMatriculaMaestro() . "', '" . $seguimiento->getPregunta1() . "','" . $seguimiento->getPregunta2() . "',
+                '" . $seguimiento->getPregunta3() . "','" . $seguimiento->getpregunta4() . "' ,'" . $seguimiento->getpregunta5() . "','" . $seguimiento->getpregunta6() . "'
+               ,'" . $seguimiento->getpregunta7() . "','" . $seguimiento->getpregunta8() . "','" . $seguimiento->getpregunta9() . "'
+               ,'" . $seguimiento->getpregunta10() . "','" . $seguimiento->getpregunta11() . "','" . $seguimiento->getpregunta12() . "'
+               ,'" . $seguimiento->getpregunta13() . "','" . $seguimiento->getpregunta14() . "','" . $seguimiento->getpregunta15() . "'
+               ,'" . $seguimiento->getpregunta16() . "','" . $seguimiento->getpregunta17() . "','" . $seguimiento->getpregunta18() . "'
+               ,'" . $seguimiento->getpregunta19() . "','" . $seguimiento->getpregunta20() . "','" . $seguimiento->getpregunta21() . "'
+               ,'" . $seguimiento->getpregunta22() . "','" . $seguimiento->getpregunta23() . "','" . $seguimiento->getpregunta24() . "','" . $seguimiento->getpregunta25() . "')";
+        mysql_query($sql, $cn->Conectarse());
+    }
+
 }
+
+?>

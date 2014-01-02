@@ -71,14 +71,21 @@ if ($_REQUEST['guardaarchivo'] != null) {
                         $sql = "SELECT * FROM cargaarchivos WHERE usuario='$usuario'";
                         $datos = mysql_query($sql, $cn->Conectarse());
                         while ($rs = mysql_fetch_array($datos)) {
-                            echo "<li><a target='_blank' href='" . $rs[2] . "'</a>" . $rs[3] . "</li>\n";
+                            echo"<div class='form-inline'>";
+                            echo "<a target='_blank' href='" . $rs[2] . "'>".$rs[3]."</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                            if ($rs[4] == 0) {
+                                echo '<i class="icon-remove" title="Documento no Validado"></i>';
+                            } else {
+                                echo '<i class="icon-ok" title="Documento validado"></i>';
+                            }
+                            echo"</div>";
                         }
                         $cn->cerrarBd();
                         ?>
-                        <!-------------------------------------------------------------->
                     </div>
                 </form>
             </div>
+            <a></a>
         </div>
     </body>
 </html>

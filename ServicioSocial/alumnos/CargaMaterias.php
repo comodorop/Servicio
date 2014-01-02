@@ -129,212 +129,199 @@ if ($valido != true) {
                                         <?php
                                         $cn = new coneccion();
                                         $sql = "SELECT distinct concat_ws('-_- ', m.semestre, m.materia) as fusion, m.materia  FROM materias m,historial h WHERE idAcreditacion <=2 and h.calificacion > 70 and m.id NOT IN (SELECT idMateria FROM historial where usuario='$matricula' )LIMIT 0 , 10";
-$datos = mysql_query($sql, $cn->Conectarse());
-                                        
-                                        if($sql != false){
-    $registros= array();
-      	 while( $renglon=mysql_fetch_array($datos, MYSQL_ASSOC)){
-   	  	    $registros[] = $renglon;
-   	     }
-   	     mysql_free_result($sql);
-      }
-                                        
+                                        $datos = mysql_query($sql, $cn->Conectarse());
 
-                                        
-                                        
-                                        
+                                        if ($sql != false) {
+                                            $registros = array();
+                                            while ($renglon = mysql_fetch_array($datos, MYSQL_ASSOC)) {
+                                                $registros[] = $renglon;
+                                            }
+                                            mysql_free_result($sql);
+                                        }
+
+
+
+
+
                                         $renglon = $registros[0];
-                                         foreach ($registros as $renglon) {
+                                        foreach ($registros as $renglon) {
 
-            foreach ($renglon as $campo => $valor) {
+                                            foreach ($renglon as $campo => $valor) {
 //                if ($campo == "materia") {
 //                    $materia = $valor;
 //                }
-                if ($campo == "fusion") {
-                    $fusion = $valor;
-                }
-                
-                if ($campo == "materia") {
+                                                if ($campo == "fusion") {
+                                                    $fusion = $valor;
+                                                }
+
+                                                if ($campo == "materia") {
 
 
-                    if (utf8_encode($valor) == "Cálculo Diferencial") {
-                        $materia = $valor;
-                        $control = 1;
-                    } else {
-                        if ((utf8_encode($valor) == "Cálculo Integral") && $control != 1) {
-                            $materia = $valor;
-                            $control = 1;
-                        } else {
-                            if (utf8_encode($valor) == "Cálculo Vectorial" && $control != 1) {
-                                $materia = $valor;
-                                $control = 1;
-                            }
-                            if (utf8_encode($valor) == "Física" && $control != 1) {
-                                $materia = $valor;
-                                $control = 1;
-                            }
-                        }
-                    }
-                    if (utf8_encode($valor) == "Fundamentos de Investigación") {
-                        $materia = $valor;
-                        $control1 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Taller de Investigación I" && $control != 1) {
-                            $materia = $valor;
-                            $control1 = 1;
-                        } else {
+                                                    if (utf8_encode($valor) == "Cálculo Diferencial") {
+                                                        $materia = $valor;
+                                                        $control = 1;
+                                                    } else {
+                                                        if ((utf8_encode($valor) == "Cálculo Integral") && $control != 1) {
+                                                            $materia = $valor;
+                                                            $control = 1;
+                                                        } else {
+                                                            if (utf8_encode($valor) == "Cálculo Vectorial" && $control != 1) {
+                                                                $materia = $valor;
+                                                                $control = 1;
+                                                            }
+                                                            if (utf8_encode($valor) == "Física" && $control != 1) {
+                                                                $materia = $valor;
+                                                                $control = 1;
+                                                            }
+                                                        }
+                                                    }
+                                                    if (utf8_encode($valor) == "Fundamentos de Investigación") {
+                                                        $materia = $valor;
+                                                        $control1 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Taller de Investigación I" && $control != 1) {
+                                                            $materia = $valor;
+                                                            $control1 = 1;
+                                                        } else {
 
-                            if (utf8_encode($valor) == "Taller de Investigación II" && $control != 1) {
-                                $materia = $valor;
-                                $control1 = 1;
-                            }
-                        }
-                    }
+                                                            if (utf8_encode($valor) == "Taller de Investigación II" && $control != 1) {
+                                                                $materia = $valor;
+                                                                $control1 = 1;
+                                                            }
+                                                        }
+                                                    }
 
-                    if (utf8_encode($valor) == "Propiedad de los Materiales") {
-                        $materia = $valor;
-                        $control2 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Procesos de Fabricación" && $control2 != 1) {
-                            $materia = $valor;
-                            $control2 = 1;
-                        }
-                    }
+                                                    if (utf8_encode($valor) == "Propiedad de los Materiales") {
+                                                        $materia = $valor;
+                                                        $control2 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Procesos de Fabricación" && $control2 != 1) {
+                                                            $materia = $valor;
+                                                            $control2 = 1;
+                                                        }
+                                                    }
 
-                    if (utf8_encode($valor) == "Probabilidad y Estadística") {
-                        $materia = $valor;
-                        $control3 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Estadística Inferencial I" && $control3 != 1) {
-                            $materia = $valor;
-                            $control3 = 1;
-                        } else {
-                            if (utf8_encode($valor) == "Control Estadístico de la Calidad" && $control3 != 1) {
-                                $materia = $valor;
-                                $control3 = 1;
-                            }
-                        }
-                    }
+                                                    if (utf8_encode($valor) == "Probabilidad y Estadística") {
+                                                        $materia = $valor;
+                                                        $control3 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Estadística Inferencial I" && $control3 != 1) {
+                                                            $materia = $valor;
+                                                            $control3 = 1;
+                                                        } else {
+                                                            if (utf8_encode($valor) == "Control Estadístico de la Calidad" && $control3 != 1) {
+                                                                $materia = $valor;
+                                                                $control3 = 1;
+                                                            }
+                                                        }
+                                                    }
 
-                    if (utf8_encode($valor) == "Estudio del Trabajo I") {
-                        $materia = $valor;
-                        $control4 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Estudio del Trabajo II" && $control4 != 1) {
-                            $materia = $valor;
-                            $control4 = 1;
-                        } else {
-                            if (utf8_encode($valor) == "Ergonomia" && $control4 != 1) {
-                                $materia = $valor;
-                                $control4 = 1;
-                            }
-                        }
-                    }
+                                                    if (utf8_encode($valor) == "Estudio del Trabajo I") {
+                                                        $materia = $valor;
+                                                        $control4 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Estudio del Trabajo II" && $control4 != 1) {
+                                                            $materia = $valor;
+                                                            $control4 = 1;
+                                                        } else {
+                                                            if (utf8_encode($valor) == "Ergonomia" && $control4 != 1) {
+                                                                $materia = $valor;
+                                                                $control4 = 1;
+                                                            }
+                                                        }
+                                                    }
 
-                    if (utf8_encode($valor) == "Administración de las Operaciones II") {
-                        $materia = $valor;
-                        $control5 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Administración de las Operaciones I" && $control5 != 1) {
-                            $materia = $valor;
-                            $control5 = 1;
-                        } else {
-                            if (utf8_encode($valor) == "Planeación y Diseño de Instalaciones" && $control5 != 1) {
-                                $materia = $valor;
-                                $control5 = 1;
-                            }
-                        }
-                    }
+                                                    if (utf8_encode($valor) == "Administración de las Operaciones II") {
+                                                        $materia = $valor;
+                                                        $control5 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Administración de las Operaciones I" && $control5 != 1) {
+                                                            $materia = $valor;
+                                                            $control5 = 1;
+                                                        } else {
+                                                            if (utf8_encode($valor) == "Planeación y Diseño de Instalaciones" && $control5 != 1) {
+                                                                $materia = $valor;
+                                                                $control5 = 1;
+                                                            }
+                                                        }
+                                                    }
 
-                    if (utf8_encode($valor) == "Álgebra Lineal" || utf8_encode($valor) == "Economia") {
+                                                    if (utf8_encode($valor) == "Álgebra Lineal" || utf8_encode($valor) == "Economia") {
 
-                        $materia = $valor;
-                        $control6 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Investigación de Operaciones I" && $control6 != 1) {
-                            $materia = $valor;
-                            $control6 = 1;
-                        } else {
-                            if (utf8_encode($valor) == "Investigación de Operaciones II" && $control6 != 1) {
-                                $materia = $valor;
-                                $control6 = 1;
-                            }
-                        }
-                    }
+                                                        $materia = $valor;
+                                                        $control6 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Investigación de Operaciones I" && $control6 != 1) {
+                                                            $materia = $valor;
+                                                            $control6 = 1;
+                                                        } else {
+                                                            if (utf8_encode($valor) == "Investigación de Operaciones II" && $control6 != 1) {
+                                                                $materia = $valor;
+                                                                $control6 = 1;
+                                                            }
+                                                        }
+                                                    }
+                                                    if ((utf8_encode($valor) == "Investigación de Operaciones II")) {
+                                                        $carga = 1;
+                                                    }
+                                                    if (utf8_encode($valor) == "Ergonomia") {
+                                                        $materia = $valor;
+                                                        $control7 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Planeación y Diseño de Instalaciones" && $carga == 1) {
+                                                            $materia = $valor;
+                                                            $control7 = 1;
+                                                        }
+                                                    }
+                                                    if (utf8_encode($valor) == "Algoritmos y Lenguajes de Programación") {
+                                                        $materia = $valor;
+                                                        $control8 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Simulación" && $control8 != 1) {
+                                                            $materia = $valor;
+                                                            $control8 = 1;
+                                                        } else {
+                                                            if (utf8_encode($valor) == "Atomatización Industrial" && $control8 != 1) {
+                                                                $materia = $valor;
+                                                                $control8 = 1;
+                                                            }
+                                                        }
+                                                    }
 
-                    if ((utf8_encode($valor) == "Investigación de Operaciones II")) {
-                        $carga = 1;
-                    }
-                    if (utf8_encode($valor) == "Ergonomia") {
-                        $materia = $valor;
-                        $control7 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Planeación y Diseño de Instalaciones" && $carga == 1) {
-                            $materia = $valor;
-                            $control7 = 1;
-                        }
-                    }
-
-                    if (utf8_encode($valor) == "Algoritmos y Lenguajes de Programación") {
-                        $materia = $valor;
-                        $control8 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Simulación" && $control8 != 1) {
-                            $materia = $valor;
-                            $control8 = 1;
-                        } else {
-                            if (utf8_encode($valor) == "Atomatización Industrial" && $control8 != 1) {
-                                $materia = $valor;
-                                $control8 = 1;
-                            }
-                        }
-                    }
-
-                    if (utf8_encode($valor) == "Gestión de Costos") {
-                        $materia = $valor;
-                        $control9 = 1;
-                    } else {
-                        if (utf8_encode($valor) == "Ingeniería Económica" || utf8_encode($valor) == "Mercadotecnia" && $control9 != 1) {
-                            $materia = $valor;
-                            $control9 = 1;
-                        } else {
-                            if (utf8_encode($valor) == "Planeación Financiera" || utf8_encode($valor) == "Planeación y Diseño de Instalaciones" && $control9 != 1) {
-                                $materia = $valor;
-                                $control9 = 1;
-                            } else {
-                                if (utf8_encode($valor) == "Formulación y Evaluación de Proyectos" && $control9 != 1) {
-                                    $materia = $valor;
-                                    $control9 = 1;
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    if ($campo == "materia") {
-                        $materia = $valor;
-                    }
-                }
-
-
-                if (($materia && $fusion) != "") {
-                     ?>
+                                                    if (utf8_encode($valor) == "Gestión de Costos") {
+                                                        $materia = $valor;
+                                                        $control9 = 1;
+                                                    } else {
+                                                        if (utf8_encode($valor) == "Ingeniería Económica" || utf8_encode($valor) == "Mercadotecnia" && $control9 != 1) {
+                                                            $materia = $valor;
+                                                            $control9 = 1;
+                                                        } else {
+                                                            if (utf8_encode($valor) == "Planeación Financiera" || utf8_encode($valor) == "Planeación y Diseño de Instalaciones" && $control9 != 1) {
+                                                                $materia = $valor;
+                                                                $control9 = 1;
+                                                            } else {
+                                                                if (utf8_encode($valor) == "Formulación y Evaluación de Proyectos" && $control9 != 1) {
+                                                                    $materia = $valor;
+                                                                    $control9 = 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                } else {
+                                                    if ($campo == "materia") {
+                                                        $materia = $valor;
+                                                    }
+                                                }
+                                                if (($materia && $fusion) != "") {
+                                                    ?>
                                                     <option value="<?php echo utf8_encode($materia); ?>" disabled="true"><?php echo utf8_encode($fusion) ?></option>
                                                     <?php
-                    $fusion = "";
-                    $materia = "";
-                    
-                }
-
-
-
-                $paso = false;
-            }
-        }
-                                        
-                                        
-                                        
-                                        
-                                        
+                                                    $fusion = "";
+                                                    $materia = "";
+                                                }
+                                                $paso = false;
+                                            }
+                                        }
                                         ?>
                                     </select>
                                     <select name="origen[]" id="origen" multiple="multiple" size="8" style="height: 30%; width: 30%">
