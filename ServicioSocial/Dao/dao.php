@@ -1,5 +1,7 @@
 <?php
 
+include '../clases/verificacion.php';
+
 //include '../DaoConnection/coneccion.php';
 
 class dao {
@@ -509,13 +511,10 @@ VALUES (
     }
 
     function dameMaestros() {
-        include '../clases/maestros.php';
-
         $cn = new coneccion();
         $sql = "SELECT m.id 
             FROM maestros m , usuarios u 
-            WHERE m.usuario= u.usuario
-            and u.tipo = 2";
+            WHERE m.usuario= u.usuario";
         $datos = mysql_query($sql, $cn->Conectarse());
         $cont = 0;
         while ($rs = mysql_fetch_array($datos)) {
@@ -528,16 +527,26 @@ VALUES (
     }
 
     function enviarEncuestaAleatoriaAlumnos($id) {
-        include '../clases/verificacion.php';
         $cn = new coneccion();
-        $sql = "select matricula from tutotmaestrosalumnos
+//        $sql = "select matricula,m.usuario  from tutotmaestrosalumnos tma
+//            inner join maestros m 
+//            on m.id= tma.idMaestro
+//            where idMaestro = $id
+//            order by  rand($id)  
+//            limit 5";
+        $sql = "select   al.usuario, m.usuario from alumnosinscritos al
+                inner join gruposalumnos ga
+                on al.idGrupo = ga.idGrupo
+                inner join maestros m 
+                on m.id = ga.idMaestro
                 where idMaestro = $id
-                order by  rand($id)  
-                limit 5";
+                order by rand()
+                limit 5;";
         $datos = mysql_query($sql, $cn->Conectarse());
         $cont = 0;
         while ($rs = mysql_fetch_array($datos)) {
             $verificacion = new verificacion();
+            $verificacion->setUsuarioMaestro($rs[1]);
             $verificacion->setAño($_SESSION["anio"]);
             $verificacion->setCiclo($_SESSION["cicloEscolar"]);
             $verificacion->setControl(0);
@@ -551,9 +560,9 @@ VALUES (
 
     function insertarVerificacion(verificacion $verificacion) {
         $cn = new coneccion();
-        $sql = "INSERT INTO verificacion (matricula, control, tipo, ciclo, anio)
+        $sql = "INSERT INTO verificacion (matricula, control, tipo, ciclo, anio, usuarioMaestro)
             VALUES  ('" . $verificacion->getMatricula() . "', '" . $verificacion->getControl() . "',
-                '" . $verificacion->getTipo() . "', '" . $verificacion->getCiclo() . "', '" . $verificacion->getAño() . "')";
+                '" . $verificacion->getTipo() . "', '" . $verificacion->getCiclo() . "', '" . $verificacion->getAño() . "','" . $verificacion->getUsuarioMaestro() . "')";
         $datos = mysql_query($sql, $cn->Conectarse());
         echo $datos;
     }

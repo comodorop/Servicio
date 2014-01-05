@@ -12,7 +12,8 @@ $guardarEventos->setEvento($_GET["Evento"]);
 $guardarEventos->setFechaInicial($_GET["fechaIni"]);
 $guardarEventos->setFechaFinal($_GET["fechaFin"]);
 $dao->guardarEvento($guardarEventos);
-if ($guardarEventos->getEvento() == 1) {
+include '../clases/maestros.php';
+if ($guardarEventos->getEvento() == 7) {
     $listaMaestros = $dao->dameMaestros();
     foreach ($listaMaestros as $lista) {
         $listaVerificacion = $dao->enviarEncuestaAleatoriaAlumnos($lista->getId());

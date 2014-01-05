@@ -19,6 +19,7 @@ class verificacion {
     private $ciclo;
     private $año;
     private $ano;
+    private $usuarioMaestro;
 
     public function getAno() {
         return $this->ano;
@@ -74,6 +75,14 @@ class verificacion {
 
     public function setAño($año) {
         $this->año = $año;
+    }
+
+    public function getUsuarioMaestro() {
+        return $this->usuarioMaestro;
+    }
+
+    public function setUsuarioMaestro($usuarioMaestro) {
+        $this->usuarioMaestro = $usuarioMaestro;
     }
 
 }

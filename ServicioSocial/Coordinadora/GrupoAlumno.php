@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include '../clases/alumnosinscritos.php';
 include '../Dao/dao.php';

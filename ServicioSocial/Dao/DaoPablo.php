@@ -231,6 +231,15 @@ class DaoPablo {
                ,'" . $seguimiento->getpregunta19() . "','" . $seguimiento->getpregunta20() . "','" . $seguimiento->getpregunta21() . "'
                ,'" . $seguimiento->getpregunta22() . "','" . $seguimiento->getpregunta23() . "','" . $seguimiento->getpregunta24() . "','" . $seguimiento->getpregunta25() . "')";
         mysql_query($sql, $cn->Conectarse());
+        $cn->cerrarBd();
+    }
+
+    function eliminarAlumnosInscrito($id) {
+        include '../DaoConnection/coneccion.php';
+        $cn = new coneccion();
+        $sql = "DELETE FROM alumnosInscritos WHERE idAlumnosInscritos = $id";
+        mysql_query($sql, $cn->Conectarse());
+        $cn->cerrarBd();
     }
 
 }

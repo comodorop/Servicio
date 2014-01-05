@@ -60,8 +60,6 @@ include './plantillaEncabezado.php';
                                 '&fechaFin=' + $('#fechaFinal').val() +
                                 '&Evento=' + $('#Evento').val();
 //                                '&Curso=' + $('#curso').val() +
-
-
                         $.post('verificacionEvento.php', datos, function(respuesta) {
                             var info = $.parseJSON(respuesta);
                             if (info > 0) {

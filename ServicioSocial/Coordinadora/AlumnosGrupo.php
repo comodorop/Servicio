@@ -16,16 +16,28 @@ $coneccion = new coneccion();
             }
         </style>
         <script>
+            function quitarEspacion(cadena) {
+                var palabra = cadena.replace(/\s/g, "%20");
+                return palabra;
+            };
+            function eliminarAlumno(idEliminar) {
+                var datos = 'id=' + idEliminar;
+                $.get('eliminarAlumnosInscritos.php', datos, function() {
+                    alertify.success("Alumnos Eliminado Exitosamente");
+                    var grupo = $("#grupo").val();
+                    var asignatura = $("#asignatura").val();
+                    asignatura = quitarEspacion(asignatura);
+                    $("#tablaAlumnos").load("tablaAlumnosInscritos.php?grupo=" + grupo + "&asignatura=" + asignatura);
+                });
+            };
+
             $(document).ready(function() {
-//                $('#bien').hide();
                 $('#GuardarDatos').click(function() {
-
-                    var datos = 'Asignatura=' + $('#Asignatura').val() +
-                            '&Grupo=' + $('#Grupo').val() +
+                    var datos = 'Asignatura=' + $('#asignatura').val() +
+                            '&Grupo=' + $('#grupo').val() +
                             '&Usuario=' + $('#usuario').val();
-
                     var a = $('#Asignatura').val();
-                    var b = $('#Grupo').val()
+                    var b = $('#Grupo').val();
                     var c = $('#usuario').val();
                     if (a !== "" && b !== "" && c !== "") {
 
@@ -34,6 +46,10 @@ $coneccion = new coneccion();
                             var info = $.parseJSON(valor);
 
                             if (info == 1) {
+                                var grupo = $("#grupo").val();
+                                var asignatura = $("#asignatura").val();
+                                asignatura = quitarEspacion(asignatura);
+                                $("#tablaAlumnos").load("tablaAlumnosInscritos.php?grupo=" + grupo + "&asignatura=" + asignatura);
                                 alertify.success("Se han guardado los datos");
                             }
                             if (info == 0) {
@@ -42,17 +58,25 @@ $coneccion = new coneccion();
                             }
                             if (info == 3) {
                                 alertify.error("El grupo no existe");
-
                             }
                             if (info == 2) {
                                 alertify.error("El alumno ya existe en esa materia");
-
                             }
                         });
 
                     } else {
                         alertify.error("Todos los datos son obligatorios");
                     }
+                });
+                $("#grupo").change(function() {
+                    var grupo = $("#grupo").val();
+                    $("#asignatura").load('dameAsignatura.php?grupo=' + grupo);
+                });
+                $("#asignatura").change(function() {
+                    var grupo = $("#grupo").val();
+                    var asignatura = $("#asignatura").val();
+                    asignatura = quitarEspacion(asignatura);
+                    $("#tablaAlumnos").load("tablaAlumnosInscritos.php?grupo=" + grupo + "&asignatura=" + asignatura);
                 });
             });
 
@@ -65,13 +89,9 @@ $coneccion = new coneccion();
                 <h3>Grupos Alumnos</h3>
                 <div class="well well-sm">
                     <center>
-                        <!--                        <div id="bien" class="alert alert-success">
-                                                    <strong>Se ha creado el grupo satisfactoriamente</strong>
-                                                </div>-->
-
                         <div class="input-append" style="float: left; margin-left: 40px">
-                            <input  id="Grupo" type="text" placeholder="Grupo...." list="listaGrupo" style=" height: 30px"/>
-                            <datalist id="listaGrupo">
+                            <select id="grupo">
+                                <option>Seleccione un Grupo</option>
                                 <?php
                                 $sql = "Select  distinct nombreGrupo from gruposAlumnos ";
                                 $datos2 = mysql_query($sql, $coneccion->Conectarse());
@@ -81,31 +101,15 @@ $coneccion = new coneccion();
                                     <?php
                                 }
                                 ?>
-
-                            </datalist>
+                            </select>
                         </div>
-
                         <div class="input-append" style="float: left; margin-left: 40px">
-                            <input  id="Asignatura" type="text" placeholder="Asignatura...." list="listaAsignaturas" style=" height: 30px"/>
-                            <datalist id="listaAsignaturas">
-                                <?php
-                                $sql = "Select materia  from gruposAlumnos, materias
-                                 WHERE   idMateria = id";
-                                $datos = mysql_query($sql, $coneccion->Conectarse());
-                                While ($rs = mysql_fetch_array($datos)) {
-                                    ?>
-                                    <option value="<?php echo utf8_encode($rs["materia"]) ?>"><?php echo utf8_encode($rs["materia"]) ?></option>
-                                    <?php
-                                }
-                                ?>
-
-                            </datalist>
-
+                            <select id="asignatura">
+                                <option>Seleccione una Asignatura</option>
+                            </select>
                         </div>
-
-
                         <div class="input-append" style="float: left; margin-left: 40px">
-                            <input  id="usuario" type="text" placeholder="usuario...." list="listaUsuario" style=" height: 30px"/>
+                            <input  id="usuario" type="text" placeholder="Usuario...." list="listaUsuario"/>
                             <datalist id="listaUsuario">
                                 <?php
                                 $sql = "Select concat_ws(' ', Nombre, apellidoPaterno, apellidoMaterno) as persona, usuario from datospersonales";
@@ -123,8 +127,14 @@ $coneccion = new coneccion();
                         <div>
                             <input type="submit" class="btn btn-primary" value="EnviarDatos" id="GuardarDatos"/>
                         </div>
+                        <br> 
+
                     </center>
                 </div>
+                <center>
+                    <table id="tablaAlumnos" class="table table-hover">
+                    </table>
+                </center>
             </div>
         </div>
     </body> 
