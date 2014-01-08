@@ -5,8 +5,16 @@ include '../Dao/daoServicio.php';
 $grupo = $_GET["grupo"];
 $idMateria = $_GET["idMateria"];
 $usuario = $_SESSION["Usuario"];
+$tipo = $_GET["tipo"];
 $daoServicio = new daoServicio();
-$datos = $daoServicio->dameAlumnos($grupo, $usuario, $idMateria);
+if ($tipo == 1) {
+    $datos = $daoServicio->dameAlumnos($grupo, $usuario, $idMateria);
+}
+else{
+    $tipo = $tipo -1;
+    $datos = $daoServicio->dameAlumnos($grupo, $usuario, $idMateria);
+}
+
 $_SESSION["listaAlumnos"] = $datos;
 //echo '<table>';
 foreach ($datos as $alumnos) {

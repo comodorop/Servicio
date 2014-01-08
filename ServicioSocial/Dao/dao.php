@@ -525,7 +525,6 @@ VALUES (
         }
         return $listaMaestros;
     }
-
     function enviarEncuestaAleatoriaAlumnos($id) {
         $cn = new coneccion();
 //        $sql = "select matricula,m.usuario  from tutotmaestrosalumnos tma

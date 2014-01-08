@@ -19,7 +19,8 @@
                 });
 
                 $("#guardar").click(function() {
-                    do_upload();
+                    alert("click me");
+//                  do_upload();
                     var usuario = $("#usuario").val();
                     var nombre = $("#nombres").val();
                     var apellidoM = $("#apellidoM").val();

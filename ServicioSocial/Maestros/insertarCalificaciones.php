@@ -36,7 +36,8 @@ foreach ($listaCalificaciones as $listaCali) {
 
     $listaCali->setUsuario($alumnos[$cont]);
     $listaCali->setIdMaestro($_SESSION["idMaestro"]);
+    $daoPablo->insertarCalifiaciones($listaCali);
     $cont++;
 }
-$daoPablo->insertarCalifiaciones($listaCali);
+    
 ?>

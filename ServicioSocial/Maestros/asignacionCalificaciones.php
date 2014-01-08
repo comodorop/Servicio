@@ -77,17 +77,18 @@ include './plantillaEncabezado.php';
                 $.get('enviarCalificacion.php', calificacion, function() {
                 });
             });
-
-
-
-
-
-
             $("#GuardarCalificaciones").click(function() {
                 var listaCalificaciones = new Array();
                 $("#formInfo").find(':input').each(function() {
                     var elemento = this;
-                    listaCalificaciones.push(elemento.value);
+                    if(elemento.value ==''){
+                        alert("Todos los campos son necesarios");
+                        listaCalificaciones = new Array();
+                        
+                    }
+                    else{
+                        listaCalificaciones.push(elemento.value);
+                    }
                 });
                 var lista = JSON.stringify(listaCalificaciones);
                 $.ajax({
@@ -151,9 +152,6 @@ include './plantillaEncabezado.php';
                                     <option value="2">Recuperacion</option>
                                     <option value="3">Extraordinario</option>
                                 </select>
-    <!--                            <select id="alumnos" style="float: left">
-                                    <option>Seleccione un Usuario</option>
-                                </select>-->
                                 <table id="alumnos" class="table table-hover">
                                 </table>
                             </form>
