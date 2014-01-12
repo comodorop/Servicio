@@ -539,7 +539,7 @@ $resp4= (( $respuesta4d + $respuesta5d + $respuesta6d + $respuesta7d + $respuest
 $resp5= (( $respuesta4e + $respuesta5e + $respuesta6e + $respuesta7e + $respuesta8e + $respuesta9e + $respuesta10e + $respuesta11e + $respuesta12e + $respuesta13e + $respuesta14e + $respuesta15e + $respuesta16e + $respuesta17e + $respuesta18e) /15);
 
     echo "  <table  class= 'table table-hover'>
-                      <th></th><td>a</td><td>b</td><td>c</td><td>d</td><td>e</td><td>Promedio</td>
+                      <th></th><td>Nunca</td><td>Casi Nunca</td><td>A Veces</td><td>Casi Siempre</td><td> Siempre</td><td>Promedio</td>
                              <tr><th>Demuestra dominio del contenido de la asignatura que imparte</th><td>$respuesta4a</td><td>$respuesta4b</td><td>$respuesta4c</td><td>$respuesta4d</td><td>$respuesta4e</td><td>$respuesta4</td></tr>
             <tr><th>Relaciona el contenido de la asignatura con el campo de trabajo del Ingeniero Industrial</th><td>$respuesta5a</td><td>$respuesta5b</td><td>$respuesta5c</td><td>$respuesta5d</td><td>$respuesta5e</td><td>$respuesta5</td></tr>
                 <tr><th>Trata a los estudiantes con respeto y tolerancia.</th><td>$respuesta6a</td><td>$respuesta6b</td><td>$respuesta6c</td><td>$respuesta6d</td><td>$respuesta6e</td><td>$respuesta6</td></tr>
@@ -566,7 +566,7 @@ $resp5= (( $respuesta4e + $respuesta5e + $respuesta6e + $respuesta7e + $respuest
     
     
     
-     echo "  <table  class= 'table table-hover'><th></th><td>a</td><td>b</td><td>Promedio</td>
+     echo "  <table  class= 'table table-hover'><th></th><td>si</td><td>no</td><td>Promedio</td>
                              <tr><th>¿Entregó la planeación de la asignatura al inicio del semestre?</th><td>$respuesta1a</td><td>$respuesta1b</td><td>$respuesta1</td></tr>
             <tr><th>Al inicio del curso explicó el contenido de la asignatura  de manera clara y precisa.</th><td>$respuesta2a</td><td>$respuesta2b</td><td>$respuesta2</td></tr>
            <tr><th>Estableció las normas y criterios de  evaluación.</th><td>$respuesta3a</td><td>$respuesta3b</td><td>$respuesta3</td></tr>
