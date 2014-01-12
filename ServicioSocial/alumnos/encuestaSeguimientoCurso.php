@@ -10,33 +10,33 @@ include './plantilla.php';
                     1. ¿Entregó la planeación de la asignatura al inicio del semestre?
                     <div class="radio">
                         <label>
-                            <input type="radio" name="1"  value="5" required="true"/>
+                            <input type="radio" name="1"  value="1" required="true"/>
                             Si
                         </label>
                         <label>
-                            <input type="radio" name="1"  value="1"required="true"/>
+                            <input type="radio" name="1"  value="2"required="true"/>
                             No
                         </label>
                     </div>
                     2. Al inicio del curso explicó el contenido de la asignatura  de manera clara y precisa.
                     <div class="radio">
                         <label>
-                            <input type="radio" name="2"  value="5" required="true"/>
+                            <input type="radio" name="2"  value="1" required="true"/>
                             Si
                         </label>
                         <label>
-                            <input type="radio" name="2"  value="1" required="true"/>
+                            <input type="radio" name="2"  value="2" required="true"/>
                             No
                         </label>
                     </div>
                     3. Estableció las normas y criterios de  evaluación.
                     <div class="radio">
                         <label>
-                            <input type="radio" name="3"  value="5" required="true"/>
+                            <input type="radio" name="3"  value="1" required="true"/>
                             Si
                         </label>
                         <label>
-                            <input type="radio" name="3"  value="1" required="true"/>
+                            <input type="radio" name="3"  value="2" required="true"/>
                             No
                         </label>
                     </div>
@@ -368,55 +368,55 @@ include './plantilla.php';
                     18. El profesor da a conocer los resultados de las evaluaciones parciales antes de subirlas al portal.
                     <div class="radio">
                         <label>
-                            <input type="radio" name="18"  value="5" required="true"/>
+                            <input type="radio" name="18"  value="1" required="true"/>
                             Si
                         </label>
                         <label>
-                            <input type="radio" name="18"  value="1" required="true"/>
+                            <input type="radio" name="18"  value="2" required="true"/>
                             No
                         </label>
                     </div>
                     19. Hasta el momento me siento satisfecho con sus métodos de enseñanza aprendizaje.
                     <div class="radio">
                         <label>
-                            <input type="radio" name="19"  value="5" required="true"/>
+                            <input type="radio" name="19"  value="1" required="true"/>
                             Si
                         </label>
                         <label1>
-                            <input type="radio" name="19"  value="1" required="true"/>
+                            <input type="radio" name="19"  value="2" required="true"/>
                             No
                             </label>
                     </div>
                     20. Me  inscribiría de nuevo con este profesor.
                     <div class="radio">
                         <label>
-                            <input type="radio" name="20"  value="5" required="true"/>
+                            <input type="radio" name="20"  value="1" required="true"/>
                             Si
                         </label>
                         <label>
-                            <input type="radio" name="20"  value="1" required="true"/>
+                            <input type="radio" name="20"  value="2" required="true"/>
                             No
                         </label>
                     </div>
                     21. Conozco el modelo de enseñanza basado en competencias.
                     <div class="radio">
                         <label>
-                            <input type="radio" name="21"  value="5" required="true" />
+                            <input type="radio" name="21"  value="1" required="true" />
                             Si
                         </label>
                         <label>
-                            <input type="radio" name="21"  value="1" required="true"/>
+                            <input type="radio" name="21"  value="2" required="true"/>
                             No
                         </label>
                     </div>
                     22. Imparte su asignatura bajo el modelo de competencia.
                     <div class="radio">
                         <label>
-                            <input type="radio" name="22"  value="5" required="true"/>
+                            <input type="radio" name="22"  value="1" required="true"/>
                             Si
                         </label>
                         <label>
-                            <input type="radio" name="22"  value="1" required="true"/>
+                            <input type="radio" name="22"  value="2" required="true"/>
                             No
                         </label>
 
