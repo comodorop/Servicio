@@ -77,28 +77,40 @@ include './plantillaEncabezado.php';
                 $.get('enviarCalificacion.php', calificacion, function() {
                 });
             });
+
+
             $("#GuardarCalificaciones").click(function() {
                 var listaCalificaciones = new Array();
+                var control = 0;
                 $("#formInfo").find(':input').each(function() {
                     var elemento = this;
-                    if(elemento.value ==''){
-                        alert("Todos los campos son necesarios");
+                    if (elemento.value == '') {
+                        alertify.error("Error! Ingrese todas las calificaciones");
                         listaCalificaciones = new Array();
-                        
+                        control = 1;
+                        return false;
                     }
-                    else{
+                    else {
                         listaCalificaciones.push(elemento.value);
+                        control = 0;
                     }
                 });
-                var lista = JSON.stringify(listaCalificaciones);
-                $.ajax({
-                    type: "POST",
-                    url: "insertarCalificaciones.php",
-                    data: {data: lista},
-                    cache: false,
-                    success: function() {
-                    }
-                });
+                if (control != 1) {
+
+                    var lista = JSON.stringify(listaCalificaciones);
+                    $.ajax({
+                        type: "POST",
+                        url: "insertarCalificaciones.php",
+                        data: {data: lista},
+                        cache: false,
+                        success: function() {
+                            alertify.success("Exito! Calificaciones dadas de Alta");
+                        }
+                    });
+                }
+
+
+
             });
         });
     </script>
@@ -145,13 +157,13 @@ include './plantillaEncabezado.php';
                                     <option value="11">11</option>
                                     <option value="12">12</option>
                                 </select>
-
-                                <select style="width:90px; float: left" id="tipoEvaluacion">
+                                <select style="width:170px; float: left" id="tipoEvaluacion">
                                     <option value="0">Tipo de Evaluación</option>
                                     <option value="1">Ordinario</option>
                                     <option value="2">Recuperacion</option>
                                     <option value="3">Extraordinario</option>
                                 </select>
+                                <br>
                                 <table id="alumnos" class="table table-hover">
                                 </table>
                             </form>

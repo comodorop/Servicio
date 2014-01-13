@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include '../DaoConnection/coneccion.php';
 include '../clases/maestros.php';
@@ -259,7 +260,7 @@ class daoServicio {
 
     function dameAlumnos($grupo, $usuario, $idMateria) {
         $cn = new coneccion();
-        $sql ="select Nombre, apellidoPaterno, apellidoMaterno, dp.usuario, idMaestro from gruposalumnos gp
+        $sql = "select Nombre, apellidoPaterno, apellidoMaterno, dp.usuario, idMaestro from gruposalumnos gp
                inner join materias m
                on m.id = gp.idMateria
                inner join maestros ma 
@@ -278,7 +279,7 @@ class daoServicio {
             $alumnos->setUsuario($rs[3]);
             $alumnos->setNombre($rs[0] . " " . $rs[1] . " " . $rs[2]);
             $datos[$cont] = $alumnos;
-            $_SESSION["idMaestro"]= $rs[4];
+            $_SESSION["idMaestro"] = $rs[4];
             $cont++;
         }
         return $datos;
@@ -318,6 +319,58 @@ class daoServicio {
         }
         return $crea;
     }
+
+    function dameAlumnosRepe($grupo, $usuario, $idMateria, $unidad) {
+        $cn = new coneccion();
+        $sql = "select Nombre, apellidoPaterno, apellidoMaterno, dp.usuario, idMaestro from calificacionesactual ca
+                inner join maestros m 
+                on m.id = ca.idMaestro
+                inner join datospersonales dp
+                on dp.usuario = ca.idAlumno
+                where m.usuario='$usuario'
+                and calificacion <70 
+                and TipoCurso = 1
+                and Unidad = '$unidad';";
+        $dtos = mysql_query($sql, $cn->Conectarse());
+        $cont = 0;
+        while ($rs = mysql_fetch_array($dtos)) {
+            $alumnos = new alumnosinscritos();
+            $alumnos->setUsuario($rs[3]);
+            $alumnos->setNombre($rs[0] . " " . $rs[1] . " " . $rs[2]);
+            $datos[$cont] = $alumnos;
+            $_SESSION["idMaestro"] = $rs[4];
+            $cont++;
+        }
+        return $datos;
+    }
+    function dameAlumnosExtraordinario($grupo, $usuario, $idMateria, $unidad) {
+        $cn = new coneccion();
+        $sql = "select Nombre, apellidoPaterno, apellidoMaterno, dp.usuario, idMaestro from calificacionesactual ca
+                inner join maestros m 
+                on m.id = ca.idMaestro
+                inner join datospersonales dp
+                on dp.usuario = ca.idAlumno
+                where m.usuario='$usuario'
+                and calificacion <70 
+                and TipoCurso = 2
+                and Unidad = '$unidad';";
+        $dtos = mysql_query($sql, $cn->Conectarse());
+        $cont = 0;
+        while ($rs = mysql_fetch_array($dtos)) {
+            $alumnos = new alumnosinscritos();
+            $alumnos->setUsuario($rs[3]);
+            $alumnos->setNombre($rs[0] . " " . $rs[1] . " " . $rs[2]);
+            $datos[$cont] = $alumnos;
+            $_SESSION["idMaestro"] = $rs[4];
+            $cont++;
+        }
+        return $datos;
+    }
+    
+    function verificar(){
+        
+    }
+    
 
 }
 ?>
