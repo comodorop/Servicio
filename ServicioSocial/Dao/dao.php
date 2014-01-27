@@ -16,11 +16,36 @@ class dao {
             mysql_query($validar2, $cn->Conectarse());
             $validando2 = mysql_affected_rows();
             if ($validando2 <= 0) {
-                $sql = "INSERT INTO alumnosinscritos(idGrupo,usuario, idMateria, anio, cursoEscolar) 
-                VALUES ('" . $A->getIdGrupo() . "', '" . $A->getUsuario() . "','" . $A->getIdMateria() . "','" . $A->getAnio() . "', '" . $A->getCursoEscolar() . "')";
-                mysql_query($sql, $cn->Conectarse());
-                $cn->cerrarBd();
-                return 1;
+                $validar1 = "SELECT distinct m.materia FROM materias m\n"
+                        . "INNER JOIN historial h ON h.idMateria = m.id\n"
+                        . "WHERE idAcreditacion <=2 and h.calificacion > 70 and idMateria = " . $A->getIdMateria() . " and m.id NOT IN (SELECT idMateria FROM historial where usuario = '" . $A->getUsuario() . " ' )";
+                mysql_query($validar1, $cn->Conectarse());
+                $normal = mysql_affected_rows();
+                $validarRepe = "SELECT concat_ws('-_- ', m.semestre, m.materia) as fusion, m.materia, m.semestre, m.id FROM historial h, materias m where h.idMateria = " . $A->getIdMateria() . " and h.usuario = '". $A->getUsuario() . "' and h.idAcreditacion <=2 and h.calificacion < 70 and m.id = h.idMateria ";
+                mysql_query($validarRepe, $cn->Conectarse());
+                $repe = mysql_affected_rows();
+
+                if ($normal > 0) {
+                    $esNormal = 1;
+                    $sql = "INSERT INTO alumnosinscritos(idGrupo,usuario, idMateria, anio, cursoEscolar, TipoCurso) 
+                VALUES ('" . $A->getIdGrupo() . "', '" . $A->getUsuario() . "','" . $A->getIdMateria() . "','" . $A->getAnio() . "', '" . $A->getCursoEscolar() . "',$esNormal)";
+                    mysql_query($sql, $cn->Conectarse());
+                    $cn->cerrarBd();
+                    return 1;
+                }
+                if ($repe > 0) {
+                    $esRepe = 1;
+                    $sql = "INSERT INTO alumnosinscritos(idGrupo,usuario, idMateria, anio, cursoEscolar, TipoCurso) 
+                VALUES ('" . $A->getIdGrupo() . "', '" . $A->getUsuario() . "','" . $A->getIdMateria() . "','" . $A->getAnio() . "', '" . $A->getCursoEscolar() . "',$esRepe)";
+                    mysql_query($sql, $cn->Conectarse());
+                    $cn->cerrarBd();
+                    return 1;
+                }
+//                $sql = "INSERT INTO alumnosinscritos(idGrupo,usuario, idMateria, anio, cursoEscolar, TipoCurso) 
+//                VALUES ('" . $A->getIdGrupo() . "', '" . $A->getUsuario() . "','" . $A->getIdMateria() . "','" . $A->getAnio() . "', '" . $A->getCursoEscolar() . ",$normal')";
+//                mysql_query($sql, $cn->Conectarse());
+//                $cn->cerrarBd();
+//                return 1;
             } else {
                 return 2;
             }
@@ -525,6 +550,7 @@ VALUES (
         }
         return $listaMaestros;
     }
+
     function enviarEncuestaAleatoriaAlumnos($id) {
         $cn = new coneccion();
 //        $sql = "select matricula,m.usuario  from tutotmaestrosalumnos tma
