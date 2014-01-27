@@ -85,7 +85,8 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resultados<b class="caret"></b></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="resultadoPrecarga.php">Precarga</a></li>
-                                            <li><a href="resultadosEncuestaTutorias.php">Encuestas</a></li>
+                                            <li><a href="resultadosEncuestaTutorias.php">Encuestas Tutorias</a></li>
+                                              <li><a href="resultadoSeguimientoCurso.php">Encuestas Seguimiento de curso</a></li>
                                         </ul>
                                     </li> 
 <!--                                    <li class="divider-vertical"></li>
