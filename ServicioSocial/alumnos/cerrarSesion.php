@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header('Location: ../indexprincipal/indexgeneral.php');
+header('Location: ../indexPrincipal/indexgeneral.php');
 ?>

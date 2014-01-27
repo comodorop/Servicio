@@ -11,7 +11,7 @@ class validacionseSession {
         <script>
              document.location.href='../indexprincipal/indexgeneral.php';
         </script>";
-            header('Location: ../indexprincipal/indexgeneral.php');
+            header('Location: ../indexPrincipal/indexgeneral.php');
         }
     }
 

@@ -125,12 +125,12 @@ class DaoPablo {
         include '../DaoConnection/coneccion.php';
 //        include '../clases/materias.php';
         $materias = new materias();
-        $sql = "SELECT materias.materia, materias.id FROM gruposAlumnos, materias
+        $sql = "SELECT materias.materia, materias.id FROM gruposalumnos, materias
         WHERE idMaestro = '$idMaestro'
         and curso = '$cicloEscolar' 
         and anio = '$anio'
         and nombreGrupo = '$grupo'
-        and materias.id = gruposAlumnos.idMateria";
+        and materias.id = gruposalumnos.idMateria";
 
         $cn = new coneccion();
         $datos = mysql_query($sql, $cn->Conectarse());

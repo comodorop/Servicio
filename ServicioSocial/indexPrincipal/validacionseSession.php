@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 class validacionseSession {
 
@@ -17,8 +17,23 @@ class validacionseSession {
     }
 
     function verificacionSession() {
-        $usuarioSession = $_SESSION['UsuarioAlumno'];
-        $tipo = $_SESSION["tipo"];
+        if (isset($_SESSION["UsuarioCoord"])) {
+            $usuarioSession = $_SESSION["UsuarioCoord"];
+            if ($usuarioSession == null) {
+                $usuarioSession = $_SESSION["Usuario"];
+                if ($usuarioSession == null) {
+                    $usuarioSession = $usuarioSession = $_SESSION['UsuarioAlumno'];
+                }
+            }
+        }
+        if(isset($_SESSION["tipo"])){
+           $tipo = $_SESSION["tipo"]; 
+        }
+        
+        if (empty($usuarioSession) || empty($tipo)) {
+            $usuarioSession = null;
+            $tipo = 0;
+        }
         if ($usuarioSession != null && $tipo == 1) {
             header('Location: ../Coordinadora/index.php');
         } else if ($usuarioSession != null && $tipo == 2) {

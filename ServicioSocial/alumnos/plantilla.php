@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="../bootsTrap2/css/bootstrap-responsive.css"/>
         <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
         <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
-        <link rel="shortcut icon" href="../indexprincipal/picture/favicon.png">
+        <link rel="shortcut icon" href="../indexPrincipal/picture/favicon.png">
         <style>
             .edgeLoad-EDGE-3614109{
                 visibility:hidden; 

@@ -16,7 +16,7 @@ $checar->verificacionSession();
         <link rel="stylesheet" type="text/css" href="../bootsTrap2/css/bootstrap-responsive.css"/>
         <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
         <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
-        <link rel="shortcut icon" href="../indexprincipal/picture/favicon.png">
+        <link rel="shortcut icon" href="../indexPrincipal/picture/favicon.png">
         <style>
             /* GLOBAL STYLES
      -------------------------------------------------- */
@@ -255,7 +255,7 @@ $checar->verificacionSession();
         <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="../indexprincipal//carrusel/indusreel.png" alt="">
+                    <img src="../indexPrincipal//carrusel/indusreel.png" alt="">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Te damos la bienvenida</h1>
@@ -264,12 +264,12 @@ $checar->verificacionSession();
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../indexprincipal//carrusel/tecreel.png" alt="">
+                    <img src="../indexPrincipal//carrusel/tecreel.png" alt="">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Itmerida.edu.mx</h1>
                             <p class="lead">Vista la página oficial del Instituto Tecnológico de Mérida.</p>
-                            <a class="btn btn-primary" href="#">Ir</a>
+                            <a class="btn btn-primary" href="http://www.itmerida.mx/">Ir</a>
                         </div>
                     </div>
                 </div>
@@ -279,13 +279,13 @@ $checar->verificacionSession();
         </div><!-- /.carousel -->
         <div class="container marketing">
             <div class="featurette">
-                <img class="featurette-image pull-right" src="../indexprincipal//picture/bom.png">
+                <img class="featurette-image pull-right" src="../indexPrincipal//picture/bom.png">
                 <h2 class="featurette-heading">Objetivo <span class="muted">de la carrera.</span></h2>
                 <p class="lead">Formar Ingenieros Industriales con las competencias genéricas y específicas de la disciplina que le permitan demostrar sus conocimientos, habilidades y actitudes en el campo de la ciencia y la tecnología, con una visión humana, creativa y emprendedora para atender con eficiencia y pertinencia los requerimientos que genera el desarrollo de la sociedad, mediante la planeación, diseño, construcción, administración, conservación, y operación de sistemas de producción con desarrollo sustentable.</p>
             </div>
             <hr class="featurette-divider">
             <div class="featurette">
-                <img class="featurette-image pull-left" src="../indexprincipal//picture/bom.png">
+                <img class="featurette-image pull-left" src="../indexPrincipal//picture/bom.png">
                 <h2 class="featurette-heading">Campo <span class="muted">de trabajo.</span></h2>
                 <p class="lead">Las funciones para las cuales estará capacitado el egresado de la licenciatura en ingeniería industrial son: planeación, diseño, administración, operación y mantenimiento sistemas de producción.
                     Además, tiene la flexibilidad suficiente para adaptarse a las necesidades de cada región, pudiendo ampliar o profundizar sus conocimientos en algún área específica para atender las demandas de su entorno.
@@ -293,7 +293,7 @@ $checar->verificacionSession();
             </div>
             <hr class="featurette-divider">
             <div class="featurette">
-                <img class="featurette-image pull-right" src="../indexprincipal//picture/bom.png">
+                <img class="featurette-image pull-right" src="../indexPrincipal//picture/bom.png">
                 <h2 class="featurette-heading">El Ingeniero Industrial <span class="muted">es un profesional capaz de:</span></h2>
                 <p class="lead">Aplicar conocimientos, habilidades y actitudes en las áreas de matemáticas, física y química, así como los fundamentos de la Ingeniería Industrial a la identificación, formulación, resolución y evaluación de problemas de ineficiencia e improductividad en organizaciones de los diferentes sectores productivos.</p>
                 <p class="lead">Implementar, administrar y mejorar sistemas integrados de abastecimiento, producción y distribución de organizaciones productoras de bienes y servicios, de forma sustentable y considerando las normas nacionales e internacionales.</p>

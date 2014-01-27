@@ -3,7 +3,7 @@
 include '../DaoConnection/coneccion.php';
 $cn = new coneccion();
 $grupo = $_GET["grupo"];
-$sql = "SELECT materia  FROM gruposAlumnos
+$sql = "SELECT materia  FROM gruposalumnos
         INNER JOIN materias m 
         ON idMateria = id
         WHERE  nombreGrupo = '$grupo'";

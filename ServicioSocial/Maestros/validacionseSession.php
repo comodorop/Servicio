@@ -9,10 +9,10 @@ class validacionseSession {
         if ($usuario == null) {
             echo "
         <script>
-             document.location.href='../indexprincipal/indexgeneral.php';
+             document.location.href='../indexPrincipal/indexgeneral.php';
         </script>
          ";
-            header('Location: ../indexprincipal/indexgeneral.php');
+            header('Location: ../indexPrincipal/indexgeneral.php');
         }
     }
 

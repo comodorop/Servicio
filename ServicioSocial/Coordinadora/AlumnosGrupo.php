@@ -93,7 +93,7 @@ $coneccion = new coneccion();
                             <select id="grupo">
                                 <option>Seleccione un Grupo</option>
                                 <?php
-                                $sql = "Select  distinct nombreGrupo from gruposAlumnos ";
+                                $sql = "Select  distinct nombreGrupo from gruposalumnos ";
                                 $datos2 = mysql_query($sql, $coneccion->Conectarse());
                                 While ($rs2 = mysql_fetch_array($datos2)) {
                                     ?>

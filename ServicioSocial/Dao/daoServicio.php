@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 include '../DaoConnection/coneccion.php';
 include '../clases/maestros.php';
 include '../clases/alumnosinscritos.php';
@@ -331,8 +331,10 @@ class daoServicio {
                 and calificacion <70 
                 and TipoCurso = 1
                 and Unidad = '$unidad';";
+        $dtos = null;
         $dtos = mysql_query($sql, $cn->Conectarse());
         $cont = 0;
+        $datos = null;
         while ($rs = mysql_fetch_array($dtos)) {
             $alumnos = new alumnosinscritos();
             $alumnos->setUsuario($rs[3]);
@@ -343,8 +345,10 @@ class daoServicio {
         }
         return $datos;
     }
+
     function dameAlumnosExtraordinario($grupo, $usuario, $idMateria, $unidad) {
         $cn = new coneccion();
+        $datos = null;
         $sql = "select Nombre, apellidoPaterno, apellidoMaterno, dp.usuario, idMaestro from calificacionesactual ca
                 inner join maestros m 
                 on m.id = ca.idMaestro
@@ -366,11 +370,24 @@ class daoServicio {
         }
         return $datos;
     }
-    
-    function verificar(){
-        
+
+    function verificar($curso, $anio, $usuario, $idMateria, $idTipo, $unidad) {
+        $cn = new coneccion();
+        $sql = "SELECT dp.usuario, dp.Nombre, dp.apellidoPaterno, dp.apellidoMaterno, ca.Calificacion
+                    from calificacionesactual ca
+                    inner join maestros m 
+                    on m.id = ca.idMaestro
+                    inner join datospersonales dp 
+                    on dp.usuario = ca.idAlumno
+                    where anio = '$anio'
+                    and TipoCurso = $idTipo
+                    and CursoEscolar = $curso 
+                    and unidad = $unidad 
+                    and idMateria = $idMateria
+                    and m.usuario = '$usuario'";
+        $rs = mysql_query($sql, $cn->Conectarse());
+        return $rs;
     }
-    
 
 }
 ?>
