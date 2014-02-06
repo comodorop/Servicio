@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 include './validacionseSession.php';
 $verificar = new validacionseSession;
 $verificar->verificacionDeLogue();
