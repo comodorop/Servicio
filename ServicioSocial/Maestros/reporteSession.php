@@ -5,7 +5,9 @@ $validacion = new validacionseSession();
 $validacion->verificacionDeLogue();
 include '../DaoConnection/coneccion.php';
 $id = $_SESSION["idMaestroSession"];
-$nombreMaestro = $_SESSION["nombreMaestro"];
+//if (isset($_SESSION["nombreMaestro"])) {
+    $nombreMaestro = $_SESSION["nombreMaestro"];
+//}
 include './plantillaEncabezado.php';
 ?>
 <html>
@@ -19,41 +21,41 @@ include './plantillaEncabezado.php';
         </style>
         <script>
             $(document).ready(function() {
-                $('#descripcion').val('');
-                $('#objetivos').val('');
-                $('#observaciones').val('');
-                $('#tareasAsignadas').val('');
-                $("#guardar").click(function() {
-                    var datos = 'usuarios=' + $('#usuarios').val() +
-                            '&fecha=' + $('#fecha').val() +
-                            '&numeroSesion=' + $('#numeroSesion').val() +
-                            '&descripcion=' + $('#descripcion').val() +
-                            '&objetivos=' + $('#objetivos').val() +
-                            '&observaciones=' + $('#observaciones').val() +
-                            '&tareasAsignadas=' + $('#tareasAsignadas').val() +
-                            '&numeroSession=' + $('#numeroSession').val();
-                    $.get('guardarSession.php', datos, function() {
-                        $("#fecha").val('');
-                        $("#descripcion").val('');
-                        $("#objetivos").val('');
-                        $("#observaciones").val('');
-                        $("#tareasAsignadas").val('');
-                        alertify.success("Exito! Datos insertados Satisfactoriamente");
-                    });
-                });
-                $('#usuarios').change(function() {
-                    var usuario = $('#usuarios').val();
-                    $("#tareasAnteriores").slideUp('slow');
-                    $("#tareasAnteriores").load('traerUltimaActividad.php?id=' + usuario);
-                });
-                $("#cancelar").click(function() {
-                    $("#tareasAnteriores").slideUp('slow');
-                    $("#fecha").val('');
-                    $("#descripcion").val('');
-                    $("#objetivos").val('');
-                    $("#observaciones").val('');
-                    $("#tareasAsignadas").val('');
-                });
+            $('#descripcion').val('');
+            $('#objetivos').val('');
+            $('#observaciones').val('');
+            $('#tareasAsignadas').val('');
+            $("#guardar").click(function() {
+            var datos = 'usuarios=' + $('#usuarios').val() +
+            '&fecha=' + $('#fecha').val() +
+            '&numeroSesion=' + $('#numeroSesion').val() +
+            '&descripcion=' + $('#descripcion').val() +
+            '&objetivos=' + $('#objetivos').val() +
+            '&observaciones=' + $('#observaciones').val() +
+            '&tareasAsignadas=' + $('#tareasAsignadas').val() +
+            '&numeroSession=' + $('#numeroSession').val();
+            $.get('guardarSession.php', datos, function() {
+            $("#fecha").val('');
+            $("#descripcion").val('');
+            $("#objetivos").val('');
+            $("#observaciones").val('');
+            $("#tareasAsignadas").val('');
+            alertify.success("Exito! Datos insertados Satisfactoriamente");
+            });
+            });
+            $('#usuarios').change(function() {
+            var usuario = $('#usuarios').val();
+            $("#tareasAnteriores").slideUp('slow');
+            $("#tareasAnteriores").load('traerUltimaActividad.php?id=' + usuario);
+            });
+            $("#cancelar").click(function() {
+            $("#tareasAnteriores").slideUp('slow');
+            $("#fecha").val('');
+            $("#descripcion").val('');
+            $("#objetivos").val('');
+            $("#observaciones").val('');
+            $("#tareasAsignadas").val('');
+            });
             });
         </script>
     </head>
