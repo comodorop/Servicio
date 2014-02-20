@@ -5,9 +5,9 @@ $validacion = new validacionseSession();
 $validacion->verificacionDeLogue();
 include '../DaoConnection/coneccion.php';
 $id = $_SESSION["idMaestroSession"];
-//if (isset($_SESSION["nombreMaestro"])) {
+if (isset($_SESSION["nombreMaestro"])) {
     $nombreMaestro = $_SESSION["nombreMaestro"];
-//}
+}
 include './plantillaEncabezado.php';
 ?>
 <html>
