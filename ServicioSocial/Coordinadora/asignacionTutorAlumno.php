@@ -25,11 +25,9 @@ include '../DaoConnection/coneccion.php';
                 $('#alumnos').load("alumnosDisponibles.php");
                 var idMaestro;
                 $('#maestro').change(function() {
-
                     if (maestro > 0) {
                         $("#actualizar").show('slow');
                         $("#agregar").hide('slow');
-
                     }
                     else {
                         var maestro = $("#maestro").val();
@@ -39,8 +37,25 @@ include '../DaoConnection/coneccion.php';
                         $("#actualizar").hide('slow');
                     }
                 });
-               
-               
+                $("#asignarTutor").click(function() {
+                    var info = $("#alumnos").val();
+                    var maestro = $("#maestro").val();
+                    if (info == '' || maestro && maestro == 0) {
+                        $('#error').slideDown('slow');
+                        $('#error').delay('1500');
+                        $('#error').slideUp('slow');
+                    }
+                    else {
+                        var informacion = "maestro=" + $("#maestro").val() + "&alumnos=" + info;
+                        $.get('asignar.php', informacion, function() {
+                            $('#alumnos').load("alumnosDisponibles.php");
+                              $("#visualizarAlumnos").load("dameTutorados.php?idMaestro=" + maestro);
+                            alertify.success("Exito Alumno Asignado");
+                        });
+                    }
+                });
+
+
             });
         </script>
     </head>
@@ -49,7 +64,7 @@ include '../DaoConnection/coneccion.php';
             <div style="margin: 3% 3% 3% 3%">
                 <h3>Asignar Tutor - Alumno</h3>
                 <div class="well well-sm">
-                   
+
                     <center>
                         <div id="asignacion">
                             <div class="form-inline">

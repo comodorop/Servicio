@@ -106,7 +106,7 @@ class DaoPablo {
         $cont = 0;
         while ($rs = mysql_fetch_array($datos)) {
             $datosPersonales = new datosPersonales();
-            $datosPersonales->getNombre($rs["Nombre"]);
+            $datosPersonales->setNombre($rs["Nombre"]);
             $datosPersonales->setApellidoPaterno($rs["apellidoPaterno"]);
             $datosPersonales->setApellidoMaterno($rs["apellidoMaterno"]);
             $listaAlumnos[$cont] = $datosPersonales;
