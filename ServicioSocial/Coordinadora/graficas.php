@@ -9,7 +9,7 @@ $banderaBusqueda = $_GET["banderaBusqueda"];
 
 if($bandera == 1){
     
-$materia = $_GET["materia"];
+$materia = utf8_decode($_GET["materia"]);
 $Maestro = $_GET["Maestro"];
 $anio = $_GET["anio"];
 $Curso = $_GET["Curso"];
@@ -28,7 +28,7 @@ $aprobados = mysql_affected_rows();
 $cn->cerrarBd();
 
 $cn = new coneccion();
-$sql2 = "SELECT Calificacion FROM calificacionesactual WHERE idMaestro = $Maestro and idMateria = $idmateria and Calificacion < 70 and unidad = $Unidad and CursoEscolar=$Curso and TipoCurso = $TipoCurso ";
+$sql2 = "SELECT Calificacion FROM calificacionesactual WHERE idMaestro = $Maestro and idMateria = $idmateria and Calificacion < 70 and unidad = $Unidad and anio=$Curso and cursoEscolar = $TipoCurso ";
 $datos2 = mysql_query($sql2, $cn->Conectarse());
 $reprobados = mysql_affected_rows();
 $cn->cerrarBd();

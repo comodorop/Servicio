@@ -1,4 +1,4 @@
-<meta http-equiv="conten-type" content="text/html; charset=UTF-8" />
+
 <?php
 include '../DaoConnection/coneccion.php';
 $cn = new coneccion();
@@ -21,7 +21,7 @@ $sql = "SELECT Distinct *\n"
     . "FROM calificacionesactual c\n"
     . "JOIN maestros m\n"
     . "ON m.id = c.idMaestro\n"
-    . "WHERE c.anio = 2013 and c.CursoEscolar = 1 and c.idMateria = 1";
+    . "WHERE c.anio = $curso and c.CursoEscolar = $TipoCurso and c.idMateria = $id group by maestro";
     $datos = mysql_query($sql, $cn->Conectarse());
     if($datos == 0){                       
      echo '<select id="materia" name="materia" >

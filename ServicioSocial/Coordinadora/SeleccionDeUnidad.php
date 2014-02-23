@@ -16,7 +16,7 @@ $id =   $fila["id"];
 
 
 
- $sql = "SELECT unidad from calificacionesactual WHERE idMateria = '$id' and  idMaestro = '$maestro'";
+ $sql = "SELECT distinct unidad from calificacionesactual WHERE idMateria = '$id' and  idMaestro = '$maestro'";
     $datos = mysql_query($sql, $cn->Conectarse());
     if($datos == 0){                       
      echo '<select id="materia" name="materia" ">
