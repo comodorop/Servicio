@@ -3,10 +3,18 @@
 class DaoJoel {
 
     function __construct() {
-        
-    }
 
-    function verificar() {
+    }
+    function consultandoTutor($usuario){
+               $cn = new coneccion();
+       $sql ="SELECT * FROM tutotmaestrosalumnos where matricula= '$usuario'";
+       $datos=  mysql_query($sql,$cn->Conectarse());
+       while ($rs = mysql_fetch_array($datos)) {
+           $tutor = $rs["idMaestro"];
+       }
+       return $tutor;
+    }
+            function verificar() {
         $cn = new coneccion();
         $sql = "";
     }

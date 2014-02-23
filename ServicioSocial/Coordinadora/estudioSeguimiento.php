@@ -7,7 +7,7 @@ $anio = $_GET["anio"];
 $sql = "SELECT pregunta1, pregunta2, pregunta3, pregunta4, pregunta5, pregunta6, pregunta7, pregunta8, pregunta9, pregunta10, pregunta11, pregunta12, pregunta13, pregunta14, pregunta15, pregunta16, pregunta17, pregunta18, pregunta19, pregunta20, pregunta21, pregunta22 FROM seguimientocurso s \n"
     . "inner join maestros m\n"
     . "on s.matriculaMaestro = m.id\n"
-    . "WHERE matriculaMaestro =  1 AND curso = $curso  AND anio = $anio";
+    . "WHERE matriculaMaestro =  $maestro AND curso = $curso  AND anio = $anio";
 $datos = mysql_query($sql, $cn->Conectarse());
 $respuesta1a = 0;
 $respuesta1b = 0;

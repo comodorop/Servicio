@@ -3,7 +3,9 @@
 include '../DaoConnection/coneccion.php';
 $cn = new coneccion();
 $tutor = $_GET["tutor"];
-$sql = "SELECT * FROM cuestionariotutorias c, verificacion v, tutotmaestrosalumnos t WHERE v.idTutor=$tutor and c.matricula = v.matricula AND v.matricula= t.matricula";
+$sql = "SELECT * FROM cuestionariotutorias c
+inner join maestros m on c.idTutor = m. id
+where idTutor = $tutor";
 $datos = mysql_query($sql, $cn->Conectarse());
 $respuesta1a = 0;
 $respuesta1b = 0;

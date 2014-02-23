@@ -9,10 +9,12 @@ $dao = new daoServicio();
 $guardar = new CuestionarioTutoria();
 $usuario = $_SESSION["UsuarioAlumno"];
 $daoJoel = new DaoJoel();
+$tutor = $daoJoel->consultandoTutor($usuario);
 ?>
 <?php
 
 $guardar->setMatricula($usuario);
+
 $guardar->setPregunta1($_GET["disposicion"]);
 $guardar->setPregunta2($_GET["cordialidad"]);
 $guardar->setPregunta3($_GET["respeto"]);
@@ -34,7 +36,7 @@ $guardar->setPregunta18($_GET["programa"]);
 $guardar->setPregunta19($_GET["satisfactorio"]);
 $guardar->setPregunta20($_GET["asignado"]);
 
-$dao->guardarEncuestaTUTO($guardar, $usuario);
+$dao->guardarEncuestaTUTO($guardar, $usuario,$tutor);
 $val2 = $daoJoel->dameMenu($usuario);
 $_SESSION["menuAlumnos"] = $val2;
 

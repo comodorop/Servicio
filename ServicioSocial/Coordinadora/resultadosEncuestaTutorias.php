@@ -20,6 +20,7 @@ include './plantillaEncabezado.php';
                 $('#Sacarmaestros').load('maestrosEncuesta.php');
                 $('#Sacarmaestros').change(function() {
                     maestro = $('#Sacarmaestros').val();
+                    alert(maestro);
                     $('#mostrarDatos').load('estudioCuestionarioTutorias.php?tutor=' + maestro);
                 });
                 

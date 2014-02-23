@@ -144,9 +144,9 @@ class daoServicio {
     }
 
     //jose!!!!!!!!!!!!!!!!!!!!!!!!!
-    function guardarEncuestaTUTO(CuestionarioTutoria $t, $usuario) {
+    function guardarEncuestaTUTO(CuestionarioTutoria $t, $usuario, $tutor) {
         $cn = new coneccion();
-        $sql = "INSERT INTO cuestionariotutorias (matricula, pregunta1, pregunta2, pregunta3, pregunta4, pregunta5, pregunta6, pregunta7, pregunta8, pregunta9, pregunta10, pregunta11, pregunta12, pregunta13, pregunta14, pregunta15, pregunta16, pregunta17, pregunta18, pregunta19, pregunta20) VALUES ('" . $t->getMatricula() . "','" . $t->getpregunta1() . "','" . $t->getpregunta2() . "','" . $t->getpregunta3() . "','" . $t->getpregunta4() . "','" . $t->getpregunta5() . "','" . $t->getpregunta6() . "','" . $t->getpregunta7() . "','" . $t->getpregunta8() . "','" . $t->getpregunta9() . "','" . $t->getpregunta10() . "','" . $t->getpregunta11() . "','" . $t->getpregunta12() . "','" . $t->getpregunta13() . "','" . $t->getpregunta14() . "','" . $t->getpregunta15() . "','" . $t->getpregunta16() . "','" . $t->getpregunta17() . "','" . $t->getpregunta18() . "','" . $t->getpregunta19() . "','" . $t->getpregunta20() . "')";
+        $sql = "INSERT INTO cuestionariotutorias (matricula, idTutor, pregunta1, pregunta2, pregunta3, pregunta4, pregunta5, pregunta6, pregunta7, pregunta8, pregunta9, pregunta10, pregunta11, pregunta12, pregunta13, pregunta14, pregunta15, pregunta16, pregunta17, pregunta18, pregunta19, pregunta20) VALUES ('" . $t->getMatricula() . "',$tutor,'" . $t->getpregunta1() . "','" . $t->getpregunta2() . "','" . $t->getpregunta3() . "','" . $t->getpregunta4() . "','" . $t->getpregunta5() . "','" . $t->getpregunta6() . "','" . $t->getpregunta7() . "','" . $t->getpregunta8() . "','" . $t->getpregunta9() . "','" . $t->getpregunta10() . "','" . $t->getpregunta11() . "','" . $t->getpregunta12() . "','" . $t->getpregunta13() . "','" . $t->getpregunta14() . "','" . $t->getpregunta15() . "','" . $t->getpregunta16() . "','" . $t->getpregunta17() . "','" . $t->getpregunta18() . "','" . $t->getpregunta19() . "','" . $t->getpregunta20() . "')";
         mysql_query($sql, $cn->Conectarse());
         $sql2 = "UPDATE verificacion SET control=1 WHERE matricula='$usuario';";
         mysql_query($sql2, $cn->Conectarse());
