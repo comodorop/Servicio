@@ -89,8 +89,8 @@
                                               <li><a href="resultadoSeguimientoCurso.php">Encuestas Seguimiento de curso</a></li>
                                         </ul>
                                     </li> 
-<!--                                    <li class="divider-vertical"></li>
-                                    <li><a href="Estadisticos.php">Estadisticas</a></li>-->
+                                    <li class="divider-vertical"></li><!--
+-->                                    <li><a href="Estadisticos.php">Estadisticas</a></li>
                                     <li class="divider-vertical"></li>
                                     <li><a href="cerrarSesion.php">Cerrar Sessión</a> </li>
                                 </ul>

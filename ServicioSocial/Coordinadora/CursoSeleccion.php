@@ -7,7 +7,7 @@ $sql = "SELECT Distinct anio FROM `calificacionesactual`";
 $datos = mysql_query($sql, $cn->Conectarse());
     if($datos == ""){                       
      echo '<select id="materia" name="materia" ">
-          <option>Seleccione un Curso</option>
+          <option>Seleccione el año</option>
           </select>';
     }
     else

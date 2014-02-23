@@ -9,7 +9,7 @@ $coneccion = new coneccion();
 ?>
 <html>
     <head>
-      
+
         <script>
             function quitarEspacion(cadena) {
                 var palabra = cadena.replace(/\s/g, "%20");
@@ -79,6 +79,7 @@ $coneccion = new coneccion();
                 })
                 $('#EscolarCurso').change(function() {
                     EscolarCurso = $('#EscolarCurso').val();
+                    alert(EscolarCurso);
                     $('#TipoBusca').hide();
                     $('#TipoCursoEsc2').hide();
                     $('#SacaMaestros').hide();
@@ -95,8 +96,8 @@ $coneccion = new coneccion();
                     $('#TipoBusca').show('slow');
                 })
                 $('#TipoBusca').change(function() {
-                    
-                $('#SacaMaestros').hide();
+
+                    $('#SacaMaestros').hide();
                     TipoBusca = $('#TipoBusca').val();
                     if (TipoBusca == "Busqueda por Maestro") {
                         banderaBusqueda = 1;
@@ -109,8 +110,8 @@ $coneccion = new coneccion();
                         $('#EnviarDatos').show('slow');
                     }
                 })
-                
-              //es de especifico 
+
+                //es de especifico 
                 $('#SacaMaestros').change(function() {
                     SacaMaestros = $('#SacaMaestros').val();
                     $('#EnviarDatos').show('slow');
@@ -121,6 +122,16 @@ $coneccion = new coneccion();
                     if (materia !== "") {
                         $('#CursoEscolar').load('CursoSeleccion.php');
                         $('#CursoEscolar').show('slow');
+                        $('#maestrosMateria').hide();
+                        
+                        $('#TipoCursoEsc').hide();
+                        $('#SelectUnidad').hide();
+                        $('#EnviarDatos').hide();
+                        $('#Graficar').hide();
+                        $('#EscolarCurso').hide();
+                        $('#TipoBusca').hide();
+                        $('#TipoCursoEsc2').hide();
+                        $('#SacaMaestros').hide();
                     }
                     else {
 
@@ -133,27 +144,68 @@ $coneccion = new coneccion();
                 $('#CursoEscolar').change(function() {
                     Curso = $('#CursoEscolar').val();
                     $('#TipoCursoEsc').load();
+                    $('#maestrosMateria').hide();
+                       
+                        
+                        $('#SelectUnidad').hide();
+                        $('#EnviarDatos').hide();
+                        $('#Graficar').hide();
+                        $('#EscolarCurso').hide();
+                        $('#TipoBusca').hide();
+                        
+                        $('#SacaMaestros').hide();
                     $('#TipoCursoEsc').show('slow');
+                    
 
                 });
 
 
                 $('#TipoCursoEsc').change(function() {
                     TipoCurso = $('#TipoCursoEsc').val();
+                    $('#maestrosMateria').hide();
+                        
+                        
+                        $('#SelectUnidad').hide();
+                        $('#EnviarDatos').hide();
+                        $('#Graficar').hide();
+                        $('#EscolarCurso').hide();
+                        $('#TipoBusca').hide();
+                       
+                        $('#SacaMaestros').hide();
                     $('#maestrosMateria').load('xxxxxx.php?materia=' + busqueda + '&Curso=' + Curso + '&TipoCurso=' + TipoCurso);
                     $('#maestrosMateria').show('slow');
                 });
 
                 $('#maestrosMateria').change(function() {
                     maestro = $('#maestrosMateria').val();
+                    
+                       
+                        $('#SelectUnidad').hide();
+                       
+                        $('#EnviarDatos').hide();
+                        $('#Graficar').hide();
+                        $('#EscolarCurso').hide();
+                        $('#TipoBusca').hide();
+                        $('#TipoCursoEsc2').hide();
+                        $('#SacaMaestros').hide();
                     $('#SelectUnidad').load('SeleccionDeUnidad.php?maestro=' + maestro + '&materia=' + busqueda);
                     $('#SelectUnidad').show('slow');
                 });
                 $('#SelectUnidad').change(function() {
                     unidad = $('#SelectUnidad').val();
+                    
+                       
+                       
+                        
+                        
+                        $('#Graficar').hide();
+                       
+                        $('#TipoBusca').hide();
+                        
+                        $('#SacaMaestros').hide();
                     $('#EnviarDatos').show('slow');
                 });
-                
+
                 //trabajando los datos segun informacion
                 $('#EnviarDatos').click(function() {
                     if (bandera == "1") {
@@ -180,6 +232,7 @@ $coneccion = new coneccion();
 
             <center>
                 <div class="span12"  style="margin: auto; background-color: white; margin-top: -20px">
+
                     <div>
                         <select name="opciones" id="opciones">
                             <option value="0" >Elija el tipo de Busqueda </option>
@@ -188,47 +241,16 @@ $coneccion = new coneccion();
 
                         </select>
                     </div>
+                    <div id="cicloEscolar2">
+                        <select id="EscolarCurso" style="width: 250px">
 
-                    <div class="input-append" style="float: left; margin-left: 40px">
-                        <input  id="materiaBuscar" type="text" placeholder="asignatura...." list="listaAlumnos" style=" height: 30px" maxlength="30"/>
-                        <datalist id="listaAlumnos">
-                            <?php
-                            $sql = "Select  materia from materias ";
-                            $datos = mysql_query($sql, $coneccion->Conectarse());
-                            While ($rs = mysql_fetch_array($datos)) {
-                                ?>
-                            <option value="<?php echo utf8_encode($rs["materia"]) ; ?>"> <?php echo utf8_encode($rs["materia"]); ?>   </option>
-                                <?php
-                            }
-                            ?>
-
-                        </datalist>
-                        <input type="submit" class="btn btn-primary" value="Buscar" id="Buscar"/>
-                    </div ><br><br>
-
-
-
-                    <div id="cicloEscolar">
-                        <select id="CursoEscolar" style="float: left; margin-left: 40px">
-
-                            <option value="0">Seleccione un Curso</option>
+                            <option value="0">Seleccione el año</option>
                         </select>            
                     </div>
-
-                    <div id="TipoCurso">
-                        <select id="TipoCursoEsc" style="margin-right: 250px; width: 250px">
-
-                            <option value="0">Seleccione un El tipo de Curso</option>
-                            <option value="1">Enero-Junio</option>
-                            <option value="2">Verano</option>
-                            <option value="3">Agosto-Diciembre</option>
-                        </select>            
-                    </div>
-
                     <div id="TipoCurso2">
                         <select id="TipoCursoEsc2" style="margin-right: 250px; width: 250px">
 
-                            <option value="0">Seleccione un El tipo de Curso</option>
+                            <option value="0">Seleccione  el tipo de Curso</option>
                             <option value="1">Enero-Junio</option>
                             <option value="2">Verano</option>
                             <option value="3">Agosto-Diciembre</option>
@@ -252,6 +274,45 @@ $coneccion = new coneccion();
 
                         </select>            
                     </div>
+                    <div class="input-append" style="float: left; margin-left: 40px">
+                        <input  id="materiaBuscar" type="text" placeholder="asignatura...." list="listaAlumnos" style=" height: 30px" maxlength="30"/>
+                        <datalist id="listaAlumnos">
+                            <?php
+                            $sql = "Select  materia from materias ";
+                            $datos = mysql_query($sql, $coneccion->Conectarse());
+                            While ($rs = mysql_fetch_array($datos)) {
+                                ?>
+                                <option value="<?php echo utf8_encode($rs["materia"]); ?>"> <?php echo utf8_encode($rs["materia"]); ?>   </option>
+                                <?php
+                            }
+                            ?>
+
+                        </datalist>
+                        <input type="submit" class="btn btn-primary" value="Buscar" id="Buscar"/>
+                    </div ><br><br>
+
+
+
+                    <div id="cicloEscolar">
+                        <select id="CursoEscolar" style="float: left; margin-left: 40px">
+
+                            <option value="0">Seleccione un Curso</option>
+                        </select>            
+                    </div>
+
+                    <div id="TipoCurso3">
+                        <select id="TipoCursoEsc" style="margin-right: 250px; width: 250px">
+
+                            <option value="0">Seleccione  el tipo de Curso</option>
+                            <option value="1">Enero-Junio</option>
+                            <option value="2">Verano</option>
+                            <option value="3">Agosto-Diciembre</option>
+                        </select>            
+                    </div>
+
+
+
+
 
                     <div id="maestroSelect">
                         <select id="maestrosMateria" style="float: left; margin-left: 40px">
@@ -270,12 +331,7 @@ $coneccion = new coneccion();
 
 
 
-                    <div id="cicloEscolar2">
-                        <select id="EscolarCurso" style="width: 250px">
 
-                            <option value="0">Seleccione un Curso</option>
-                        </select>            
-                    </div>
                     <div>
                         <input type="submit" class="btn btn-primary" value="EnviarDatos" id="EnviarDatos"/>
                     </div>
