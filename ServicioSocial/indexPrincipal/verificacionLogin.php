@@ -56,16 +56,17 @@ if ($tipo == 1) {
     $_SESSION["UsuarioAlumno"] = $usuario->getUsuario();
     include '../clases/fechascicloescolar.php';
     $fechascicloescolar = new fechascicloescolar();
+    $encuestaSeguimientoCurso;
     $anio = $_SESSION["anio"];
     $ciclo = $_SESSION["cicloEscolar"];
     $fechascicloescolar->setAnio($anio);
     $fechascicloescolar->setCicloEscolar($ciclo);
     $valido = $dao->validarEncuestaTutorias($fechascicloescolar);
     $val2 = $dao->dameMenu($_SESSION["UsuarioAlumno"]);
+    $dao->dameEncuestaSeguimientoCurso($_SESSION["UsuarioAlumno"], $_SESSION["cicloEscolar"], $_SESSION["anio"]);
     $_SESSION["menuAlumnos"] = $val2;
     $_SESSION["validarFechas"] = $valido;
-    echo '
-<i class="icon-ok"></i>&nbsp;Iniciar';
+    echo '<i class="icon-ok"></i>&nbsp;Iniciar';
     echo "
         <script>
              document.location.href='../alumnos/index.php';

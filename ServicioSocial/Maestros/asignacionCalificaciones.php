@@ -161,7 +161,6 @@ include './plantillaEncabezado.php';
                                     <option value="0">Tipo de Evaluación</option>
                                     <option value="1">Ordinario</option>
                                     <option value="2">Recuperacion</option>
-                                    <option value="3">Extraordinario</option>
                                 </select>
                                 <br>
                                 <table id="alumnos" class="table table-hover">

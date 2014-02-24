@@ -18,6 +18,8 @@ if ($guardarEventos->getEvento() == 7) {
     foreach ($listaMaestros as $lista) {
         $listaVerificacion = $dao->enviarEncuestaAleatoriaAlumnos($lista->getId());
         foreach ($listaVerificacion as $listaV) {
+            $listaV->setCiclo($_SESSION["cicloEscolar"]);
+            $listaV->setAño($_SESSION["anio"]);
             $dao->insertarVerificacion($listaV);
         }
     }

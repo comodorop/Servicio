@@ -21,7 +21,7 @@ class dao {
                         . "WHERE idAcreditacion <=2 and h.calificacion > 70 and idMateria = " . $A->getIdMateria() . " and m.id NOT IN (SELECT idMateria FROM historial where usuario = '" . $A->getUsuario() . " ' )";
                 mysql_query($validar1, $cn->Conectarse());
                 $normal = mysql_affected_rows();
-                $validarRepe = "SELECT concat_ws('-_- ', m.semestre, m.materia) as fusion, m.materia, m.semestre, m.id FROM historial h, materias m where h.idMateria = " . $A->getIdMateria() . " and h.usuario = '". $A->getUsuario() . "' and h.idAcreditacion <=2 and h.calificacion < 70 and m.id = h.idMateria ";
+                $validarRepe = "SELECT concat_ws('-_- ', m.semestre, m.materia) as fusion, m.materia, m.semestre, m.id FROM historial h, materias m where h.idMateria = " . $A->getIdMateria() . " and h.usuario = '" . $A->getUsuario() . "' and h.idAcreditacion <=2 and h.calificacion < 70 and m.id = h.idMateria ";
                 mysql_query($validarRepe, $cn->Conectarse());
                 $repe = mysql_affected_rows();
 
@@ -587,7 +587,7 @@ VALUES (
         $cn = new coneccion();
         $sql = "INSERT INTO verificacion (matricula, control, tipo, ciclo, anio, usuarioMaestro)
             VALUES  ('" . $verificacion->getMatricula() . "', '" . $verificacion->getControl() . "',
-                '" . $verificacion->getTipo() . "', '" . $verificacion->getCiclo() . "', '" . $verificacion->getAño() . "','" . $verificacion->getUsuarioMaestro() . "')";
+                '7', '" . $_SESSION["cicloEscolar"] . "', '" . $_SESSION["anio"] . "','" . $verificacion->getUsuarioMaestro() . "')";
         $datos = mysql_query($sql, $cn->Conectarse());
         echo $datos;
     }

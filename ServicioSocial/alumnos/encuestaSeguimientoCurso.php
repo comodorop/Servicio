@@ -1,10 +1,13 @@
 <?php
+session_start();
 include './plantilla.php';
 ?>
 <form action="guardarSeguimientoCurso.php" method="GET">
     <body>
         <div class="container">
             <div    class="span12"  style="margin: auto; background-color: white; margin-top: -20px">
+                <br>
+                <h1> Maestro Encuestado: <?php echo $_SESSION["nombreMaestroSeguimientoCurso"]; ?></h1>
                 <br>
                 <div  class="well well-small">
                     1. ¿Entregó la planeación de la asignatura al inicio del semestre?
@@ -333,7 +336,7 @@ include './plantilla.php';
                             A Veces
                         </label>
                         <label>
-                            
+
                             <input type="radio" name="16"  value="2" required="true"/>
                             Casi Nunca
                         </label>

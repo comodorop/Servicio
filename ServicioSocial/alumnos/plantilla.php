@@ -57,10 +57,6 @@
                                     $val2 = $_SESSION["menuAlumnos"];
                                     $valido = $_SESSION["validarFechas"];
                                     if ($valido == true) {
-//                                    $usuario = $_SESSION['UsuarioAlumno'];
-//                                    include '../Dao/dao.php';
-//                                    $dao = new dao();
-//                                    $val2 = $dao->dameMenu($usuario);
                                         if ($val2 == 0) {
                                             ?>
                                             <li class="divider-vertical"></li>
@@ -68,7 +64,15 @@
                                             <?php
                                         }
                                     }
-                                    ?>
+                                    
+                                    $dato = $_SESSION["maestroSeguimientoCurso"];
+                                    if ($dato != "" ){
+                                        ?>
+                                        <li class = "divider-vertical"></li>
+                                        <li><a href = "encuestaSeguimientoCurso.php">Seguimiento Curso</a> </li>
+                                        <?php
+                                    }
+                                    ?> 
                                     <li class="divider-vertical"></li>
                                     <li><a href="encuestaTutorias.php">Encuesta Socieconomica</a> </li>
                                     <li class="divider-vertical"></li>

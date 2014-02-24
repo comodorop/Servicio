@@ -3,18 +3,20 @@
 class DaoJoel {
 
     function __construct() {
+        
+    }
 
+    function consultandoTutor($usuario) {
+        $cn = new coneccion();
+        $sql = "SELECT * FROM tutotmaestrosalumnos where matricula= '$usuario'";
+        $datos = mysql_query($sql, $cn->Conectarse());
+        while ($rs = mysql_fetch_array($datos)) {
+            $tutor = $rs["idMaestro"];
+        }
+        return $tutor;
     }
-    function consultandoTutor($usuario){
-               $cn = new coneccion();
-       $sql ="SELECT * FROM tutotmaestrosalumnos where matricula= '$usuario'";
-       $datos=  mysql_query($sql,$cn->Conectarse());
-       while ($rs = mysql_fetch_array($datos)) {
-           $tutor = $rs["idMaestro"];
-       }
-       return $tutor;
-    }
-            function verificar() {
+
+    function verificar() {
         $cn = new coneccion();
         $sql = "";
     }
@@ -47,7 +49,6 @@ class DaoJoel {
             $d = mysql_query($sql, $cn->Conectarse());
             while ($rs = mysql_fetch_array($d)) {
                 $_SESSION["idMaestroSession"] = $rs[4];
-                
             }
         }
         if ($columnas > 0) {
@@ -109,6 +110,27 @@ class DaoJoel {
         $evaluame = date("Y/m/d");
         $user_ts = strtotime($evaluame); //fecha a evaluar
         return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
+    }
+
+    function dameEncuestaSeguimientoCurso($usuario, $cicloEscolar, $anio) {
+        session_start();
+        $sql = "SELECT * 
+            FROM verificacion v
+            inner join maestros m
+            on m.usuario=v.usuarioMaestro
+            WHERE matricula ='$usuario' 
+            and ciclo = '$cicloEscolar'
+            and anio='$anio' and tipo =7
+            and control =0";
+        $cn = new coneccion();
+        $datos = mysql_query($sql, $cn->Conectarse());
+        $x = mysql_affected_rows();
+        if ($x > 0) {
+            while ($rs = mysql_fetch_array($datos)) {
+                $_SESSION["maestroSeguimientoCurso"] = $rs["usuarioMaestro"];
+                $_SESSION["nombreMaestroSeguimientoCurso"] = $rs["maestro"];
+            }
+        }
     }
 
     //put your code here

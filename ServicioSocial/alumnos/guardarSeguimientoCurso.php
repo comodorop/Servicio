@@ -7,6 +7,8 @@ $daoPablo = new daoPablo();
 $segumiento = new seguimientoCurso();
 $segumiento->setAnio($_SESSION["anio"]);
 $segumiento->setCurso($_SESSION["cicloEscolar"]);
+$segumiento->setMatriculaMaestro($_SESSION["maestroSeguimientoCurso"]);
+$segumiento->setUsuario($_SESSION["UsuarioAlumno"]);
 $segumiento->setPregunta1($_GET["1"]);
 $segumiento->setPregunta2($_GET["2"]);
 $segumiento->setPregunta3($_GET["3"]);

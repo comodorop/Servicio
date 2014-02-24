@@ -220,7 +220,7 @@ class DaoPablo {
             (usuario, anio, curso, matriculaMaestro, pregunta1, pregunta2, pregunta3, pregunta4
             , pregunta5, pregunta6, pregunta7, pregunta8, pregunta9, pregunta10, pregunta11
             , pregunta12, pregunta13, pregunta14, pregunta15, pregunta16, pregunta17, pregunta18
-            , pregunta19, pregunta20, pregunta21, pregunta22, pregunta23, pregunta24, pregunta25)
+            , pregunta19, pregunta20, pregunta21, pregunta22, pregunta23, pregunta24)
             VALUES('" . $seguimiento->getUsuario() . "', '" . $seguimiento->getAnio() . "', '" . $seguimiento->getCurso() . "',
                 '" . $seguimiento->getMatriculaMaestro() . "', '" . $seguimiento->getPregunta1() . "','" . $seguimiento->getPregunta2() . "',
                 '" . $seguimiento->getPregunta3() . "','" . $seguimiento->getpregunta4() . "' ,'" . $seguimiento->getpregunta5() . "','" . $seguimiento->getpregunta6() . "'
@@ -229,7 +229,7 @@ class DaoPablo {
                ,'" . $seguimiento->getpregunta13() . "','" . $seguimiento->getpregunta14() . "','" . $seguimiento->getpregunta15() . "'
                ,'" . $seguimiento->getpregunta16() . "','" . $seguimiento->getpregunta17() . "','" . $seguimiento->getpregunta18() . "'
                ,'" . $seguimiento->getpregunta19() . "','" . $seguimiento->getpregunta20() . "','" . $seguimiento->getpregunta21() . "'
-               ,'" . $seguimiento->getpregunta22() . "','" . $seguimiento->getpregunta23() . "','" . $seguimiento->getpregunta24() . "','" . $seguimiento->getpregunta25() . "')";
+               ,'" . $seguimiento->getpregunta22() . "','" . $seguimiento->getpregunta23() . "','" . $seguimiento->getpregunta24() . "')";
         mysql_query($sql, $cn->Conectarse());
         $cn->cerrarBd();
     }
